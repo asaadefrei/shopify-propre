@@ -1,461 +1,169 @@
-  <style>
+<style>
+  h5{
+    font-size: 1rem;
+  }
+  .section-ensemble-jupe-pantalon .main-flex {
+    display: flex;
+    flex-direction: column;
+  }
 
-    .section-custom-more-product .mon-bouton {
-    height: 50px;
-    width: 192px;
-    background-color: transparent; /* Remplacez cette couleur par celle de votre choix */
-    padding-left: 24px;
-    padding-right: 24px;
-    border: none; /* Pour supprimer la bordure par défaut du bouton */
-    color: #ffffff; /* Couleur du texte, ajustez selon vos besoins */
-    font-size: 16px; /* Taille de la police, ajustez selon vos besoins */
-}
 
-    .section-custom-more-product .main-flexbox {
+  .section-ensemble-jupe-pantalon .inner-flexbox-image {
+    height: 160vh;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  .section-ensemble-jupe-pantalon .inner-flexbox-image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .section-ensemble-jupe-pantalon .inner-flexbox-item {
       display: flex;
-      width: 100%;
-      object-fit: contain;
-
-    }
-     .section-custom-more-product h5 {
-     color: #222222;
-
-
-    }
-      .section-custom-more-product span {
-        color: #C2565E; 
-
-    }
-
-      .section-custom-more-product .promo {
-        text-decoration: line-through;
-    }
-
-    .section-custom-more-product .sub-flexbox {
-      flex: 1;
-      width: 50%;
-      display: flex;
-      flex-direction: row;
-      object-fit: contain;
-
-    }
-
-    .section-custom-more-product .third-flexbox {
-      display: flex;
-      flex-direction: column;
-      width: 50%;
-
-    }
-
-   
-    .section-custom-more-product .button-wishlist {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      border:none;
-      background-color: transparent;
-      outline: none;
-
-    }
-
-
-
-    .section-custom-more-product .inner-flexbox-image {
-      height: 62.5vh;
-      object-fit:contain;
-    }
-
-    .section-custom-more-product .inner-flexbox-image img {
-      height: 100%;
-      width: 100%;
-      object-fit:cover;
-
-
-    }
-
-    .section-custom-more-product .inner-flexbox-item {
-      display: flex;
-      height: 76px;
+      height: 88px;
       flex-direction: row;
       align-items: center;
       justify-content: center;
       align-content: center;
       object-fit:contain;
 
-    }
+  }
 
 
-    .section-custom-more-product .inner-flexbox-item .div-element {
-      max-height: 100%;
+  .section-ensemble-jupe-pantalon .div-element {
+     max-height: 100%;
       object-fit:contain;
       width: 100%;
       margin: 12px 16px;
-      justify-content: space-between;
+      justify-content: space-between; 
+    
+  }
 
-    }
+  .section-ensemble-jupe-pantalon .section-1 {
+    justify-content: space-between;
+      display: flex;
 
-    .section-custom-more-product .section-1 {
+  }
+
+  .section-ensemble-jupe-pantalon .section-2 {
       justify-content: space-between;
       display: flex;
-      margin-bottom: -20px;
+      align-items: center; 
+      padding-bottom: 5px;
 
-    }
+  }
 
-    .section-custom-more-product .section-2 {
-      justify-content: space-between;
-      display: flex;
-      align-items: center; /* Align items vertically in the center */
+  .section-ensemble-jupe-pantalon .link-block {
+    padding-left: 5px;
+  }
+
+  .section-ensemble-jupe-pantalon .cercle {
+    border: 1px solid #000;
+    border-radius: 20px;
 
 
-    }
- .section-custom-more-product .div-button {
-        font-size: 0;
-      }
-    .section-custom-more-product .link-block {
-      padding-left: 5px;
-    }
-
-    .section-custom-more-product .cercle {
-      border: 1px solid #010101;
-      border-radius: 20px;
+  }
+    .section-custom-best-seller .div-button {
+      font-size: 0;
 
 
     }
   
+</style>
 
+  <div class="section-ensemble-jupe-pantalon">
+    <div class="main-flex">
+      <div class="inner-flexbox-image">
 
-    @media screen and (max-width: 650px) {
-      .section-custom-more-product .main-flexbox {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        border: 1px solid #ddd;
-      }
+        <a href="{{ section.settings.url_product }}">
+  {% if section.settings.selected_product %}
+                {% assign imageProduit1 = section.settings.image_1 %}
+                   <img src="{{ imageProduit1 | img_url: 'master' }}" alt="Image sélectionnée" loading="lazy" id="bestSellerBoxImage"/>
+            {% endif %}        </a>
 
-      .section-custom-more-product .sub-flexbox {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-      }
+      </div>
+      <div class="inner-flexbox-item">
+        <div class="div-element">
 
-      .section-custom-more-product.third-flexbox {
-        width: 100%;
-        border: 1px solid #ddd;
-        flex-direction: column;
-        flex-wrap: wrap;
+          <section class="section-1">
+            <div><h5>Ensemble Top et jupe plissés Serenity </h5></div>
+            <div><h5>89€</h5></div>
+          </section>
 
-      }
-
-    }
-  </style>
-
-
-
-
-
-
-  
-  <div class="section-custom-more-product">
-    <button class="mon-bouton"><h5 style="color: #222222;font-size:1rem;">Dans la même Collection</h5></button>
-
-    <div class="main-flexbox">
-      <div class="sub-flexbox">
-
-        <div class="third-flexbox">
-          <div class="inner-flexbox-image">
-
-
-
-         <a id="Box4LinkBox1" href="{{ section.settings.url_product}}">
-      {% for block in section.blocks %}
-              {% if block.type == "produit_1" %}
-                {% assign imageProduit1 = block.settings.imageProduit %}
-                   <img src="{{ imageProduit1 | img_url: 'master' }}" alt="Image sélectionnée" loading="lazy" id="Box4ImageProduitBox1"/>
-            {% endif %}
-          {% endfor %}
-          </a>
-            
-          </div>
-          
-          <div class="inner-flexbox-item" >
-            <div class="div-element">
-
-              <section class="section-1">
-                <div><h5 style="font-size:1rem;">Robe Manches à noeuds Harmony </h5></div>
-                <div><h5 style="font-size:1rem;"> 95€</h5></div>
-              </section>
-
-              <section class="section-2">
-                <div><h5 style="font-size:1rem">S M L XL</h5></div>
-                <div class="div-button">
-                  
-                       
-              {% if section.settings.color_button.alpha > 0 %}
-            <a href="#" class="link-block" id="4box-first-Link-produit-1">
-                <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.color_button }};" width="12" height="12" class="cercle" >
+          <section class="section-2">
+            <div><h5>S M L XL</h5></div>
+            <div class="div-button">
+           {% if section.settings.color_button.alpha > 0 %}
+            <a href="#" class="link-block" id="Best-Seller-first-Link-produit">
+                <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.color_button1 }};" width="12" height="12" class="cercle" >
             </a>
         {% endif %}
          {% if section.settings.color_button2.alpha > 0 %}
-            <a href="#" class="link-block" id="4box-second-Link-produit-1">
+            <a href="#" class="link-block" id="Best-Seller-second-Link-produit">
                 <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.color_button2 }};" width="12" height="12" class="cercle" >
             </a>
         {% endif %}
-{% if section.settings.color_button3.alpha > 0 %}
-            <a href="#" class="link-block" id="4box-third-Link-produit-1">
+       {% if section.settings.color_button3.alpha > 0 %}
+            <a href="#" class="link-block" id="Best-Seller-third-Link-produit">
                 <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.color_button3 }};" width="12" height="12" class="cercle" >
             </a>
         {% endif %}
-        
-                </div>
-
-              </section>
-
-
             </div>
-          </div>
-        </div>
 
-        <div class="third-flexbox">
-          <div class="inner-flexbox-image">
-       
-
-          <a id="Box4LinkBox2" href="{{ section.settings.url_product2}}">
-      {% for block in section.blocks %}
-              {% if block.type == "V2produit_1" %}
-                {% assign imageProduit1 = block.settings.imageProduit %}
-                   <img src="{{ imageProduit1 | img_url: 'master' }}" alt="Image sélectionnée" loading="lazy" id="Box4ImageProduitBox2"/>
-            {% endif %}
-          {% endfor %}
-          </a>
-            
-          </div>
-          <div class="inner-flexbox-item">
-            <div class="div-element">
-
-              <section class="section-1">
-                <div><h5  style="font-size:1rem;">Ensemble Abaya Lila</h5></div>
-                <div><h5 style="font-size:1rem;white-space: nowrap;"> 135€</h5></div>
-              </section>
-
-              <section class="section-2">
-                <div><h5  style="font-size:1rem;">S M L XL</h5></div>
-                <div class="div-button">
-
- {% if section.settings.V2color_button1.alpha > 0 %}
-            <a href="#" class="link-block" id="4box-first-Link-produit-2">
-                <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.V2color_button1 }};" width="12" height="12" class="cercle" >
-            </a>
-        {% endif %}
-         {% if section.settings.V2color_button2.alpha > 0 %}
-            <a href="#" class="link-block" id="4box-second-Link-produit-2">
-                <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.V2color_button2 }};" width="12" height="12" class="cercle" >
-            </a>
-        {% endif %}
-{% if section.settings.V2color_button3.alpha > 0 %}
-            <a href="#" class="link-block" id="4box-third-Link-produit-2">
-                <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.V2color_button3 }};" width="12" height="12" class="cercle" >
-            </a>
-        {% endif %}
-        
-
-                  
-                </div>
-
-              </section>
+          </section>
 
 
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="sub-flexbox">
-        <div class="third-flexbox">
-          <div class="inner-flexbox-image">
-
-        
-
-          <a id="Box4LinkBox3" href="{{ section.settings.url_product3}}">
-      {% for block in section.blocks %}
-              {% if block.type == "V3produit_1" %}
-                {% assign imageProduit1 = block.settings.imageProduit %}
-                   <img src="{{ imageProduit1 | img_url: 'master' }}" alt="Image sélectionnée" loading="lazy" id="Box4ImageProduitBox3"/>
-            {% endif %}
-          {% endfor %}
-          </a>
-
-          </div>
-
-          <div class="inner-flexbox-item">
-            <div class="div-element">
-
-              <section class="section-1">
-                <div><h5  style="font-size:1rem;">Ensemble Abaya Kimono Moduza</h5></div>
-                <div><h5 style="font-size:1rem;white-space: nowrap;">  139€ </h5></div>
-              </section>
-
-              <section class="section-2">
-                <div><h5 style="font-size:1rem;">S M L XL</h5></div>
-                <div class="div-button">
-
- {% if section.settings.V3color_button1.alpha > 0 %}
-            <a href="#" class="link-block" id="4box-first-Link-produit-3">
-                <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.V3color_button1 }};" width="12" height="12" class="cercle" >
-            </a>
-        {% endif %}
-         {% if section.settings.V3color_button2.alpha > 0 %}
-            <a href="#" class="link-block" id="4box-second-Link-produit-3">
-                <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.V3color_button2 }};" width="12" height="12" class="cercle" >
-            </a>
-        {% endif %}
-{% if section.settings.V3color_button3.alpha > 0 %}
-            <a href="#" class="link-block" id="4box-third-Link-produit-3">
-                <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.V3color_button3 }};" width="12" height="12" class="cercle" >
-            </a>
-        {% endif %}
-        
-
-
-                  
-                </div>
-
-              </section>
-
-
-            </div>
-          </div>
-        </div>
-
-        <div class="third-flexbox">
-          <div class="inner-flexbox-image">
-
-
-          <a id="Box4LinkBox4" href="{{ section.settings.url_product4}}">
-      {% for block in section.blocks %}
-              {% if block.type == "V4produit_1" %}
-                {% assign imageProduit1 = block.settings.imageProduit %}
-                   <img src="{{ imageProduit1 | img_url: 'master' }}" alt="Image sélectionnée" loading="lazy" id="Box4ImageProduitBox4"/>
-            {% endif %}
-          {% endfor %}
-          </a>
-
-
-          </div>
-          <div class="inner-flexbox-item">
-            <div class="div-element">
-
-              <section class="section-1">
-                <div><h5  style="font-size:1rem;">Ensemble Robe plissée et Kimono Saphir</h5></div>
-                <div><h5 style="font-size:1rem;white-space: nowrap;">115€</h5></div>
-              </section>
-
-              <section class="section-2">
-                <div><h5 style="font-size:1rem;">S M L XL</h5></div>
-                <div class="div-button">
-
-
- {% if section.settings.V4color_button1.alpha > 0 %}
-            <a href="#" class="link-block" id="4box-first-Link-produit-4">
-                <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.V4color_button1 }};" width="12" height="12" class="cercle" >
-            </a>
-        {% endif %}
-         {% if section.settings.V4color_button2.alpha > 0 %}
-            <a href="#" class="link-block" id="4box-second-Link-produit-4">
-                <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.V4color_button2 }};" width="12" height="12" class="cercle" >
-            </a>
-        {% endif %}
-{% if section.settings.V4color_button3.alpha > 0 %}
-            <a href="#" class="link-block" id="4box-third-Link-produit-4">
-                <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.V4color_button3 }};" width="12" height="12" class="cercle" >
-            </a>
-        {% endif %}
-
-
-
-
-
-
-                  
-                </div>
-
-              </section>
-
-
-            </div>
-          </div>
         </div>
       </div>
     </div>
   </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 {% schema %}
-{
-  "name": "more-product",
-  "tag": "section",
-  "class": "section",
-  "disabled_on": {
-    "groups": ["header", "footer"]
-  },
-  "settings": [
+  {
+    "name": "Section jupe pantalon",
+    "settings": [
+       {
+      "type": "product",
+      "id": "selected_product",
+      "label": "Produit sélectionné",
+      "info": "Choisissez un produit à afficher dans cette section"
+    },
         {
+      "type": "product",
+      "id": "selected_product2",
+      "label": "Produit sélectionné",
+      "info": "Choisissez un produit à afficher dans cette section"
+    },
+        {
+      "type": "product",
+      "id": "selected_product3",
+      "label": "Produit sélectionné",
+      "info": "Choisissez un produit à afficher dans cette section"
+    },
+          {
       "type": "image_picker",
-      "id": "forme",
-      "label": "Sélectionner une forme "
+      "label": "Image 1",
+      "id": "image_1"
     },
-     {
+    {
       "type": "image_picker",
-      "id": "wishlist-heart-void",
-      "label": "image wishlist vide "
-    },
-         {
-      "type": "image_picker",
-      "id": "wishlist-heart",
-      "label": "image wishlist plein "
-    },
-      {
-      "type": "url",
-      "id": "url_product1",
-      "label": "url sélectionné"
-    },
-      {
-      "type": "url",
-      "id": "url_product2",
-      "label": "url sélectionné 2"
+      "label": "Image 2",
+      "id": "image_2"
     },
        {
-      "type": "url",
-      "id": "url_product3",
-      "label": "url sélectionné 3 "
+      "type": "image_picker",
+      "label": "Image 3",
+      "id": "image_3"
+    },
+          {
+      "type": "image_picker",
+      "label": "rorme cercle",
+      "id": "forme"
     },
            {
-      "type": "url",
-      "id": "url_product4",
-      "label": "url sélectionné 3 "
-    },
-     {
       "type": "color",
       "id": "color_button",
       "label": "[1] Couleur du bouton"
@@ -470,608 +178,17 @@
       "id": "color_button3",
       "label": "[1] Couleur du bouton 3"
     },
-      {
-      "type": "color",
-      "id": "V2color_button1",
-      "label": "[2] Couleur du bouton"
-    },
-       {
-      "type": "color",
-      "id": "V2color_button2",
-      "label": "[2] Couleur du bouton 2"
-    },
-       {
-      "type": "color",
-      "id": "V2color_button3",
-      "label": "[2] Couleur du bouton  3"
-    },
-          {
-      "type": "color",
-      "id": "V3color_button1",
-        "label": "[3] Couleur du bouton "
-    },
-       {
-      "type": "color",
-      "id": "V3color_button2",
-      "label": "[3] Couleur du bouton 2"
-    },
-       {
-      "type": "color",
-      "id": "V3color_button3",
-      "label": "[3] Couleur du bouton 3"
-    },
-     {
-      "type": "color",
-      "id": "V4color_button1",
-      "label": "[4] Couleur du bouton"
-    },
-       {
-      "type": "color",
-      "id": "V4color_button2",
-      "label": "[4] Couleur du bouton 2"
-    },
-       {
-      "type": "color",
-      "id": "V4color_button3",
-      "label": "[4] Couleur du bouton 3"
-    }
-  ],
-  "blocks": [
     {
-      "type": "produit_1",
-      "name": "[1] produit 1",
-      "settings": [
-   {
-      "type": "product",
-      "id": "selected_product",
-      "label": "Produit sélectionné",
-      "info": "Choisissez un produit à afficher dans cette section"
-    },
-            {
-      "type": "image_picker",
-      "id": "imageProduit",
-      "label": "Sélectionner une image"
-    }
-      ]
-    },
-
-     {
-      "type": "produit_2",
-      "name": "[1] produit 2",
-      "settings": [
-   {
-      "type": "product",
-      "id": "selected_product",
-      "label": "Produit sélectionné",
-      "info": "Choisissez un produit à afficher dans cette section"
-    },
-            {
-      "type": "image_picker",
-      "id": "imageProduit",
-      "label": "Sélectionner une image"
-    }
-        
-      ]
-    },
+      "type": "url",
+      "id": "url_product",
+      "label": "url sélectionné "
+    }      
+    ],
+      "presets": [
     {
-      "type": "produit_3",
-      "name": "[1] produit 3",
-      "settings": [
-   {
-      "type": "product",
-      "id": "selected_product",
-      "label": "Produit sélectionné",
-      "info": "Choisissez un produit à afficher dans cette section"
-    },
-            {
-      "type": "image_picker",
-      "id": "imageProduit",
-      "label": "Sélectionner une image"
-    }
-        
-      ]
-    },
-        {
-      "type": "V2produit_1",
-      "name": "[2] produit 1",
-      "settings": [
-   {
-      "type": "product",
-      "id": "selected_product",
-      "label": "Produit sélectionné",
-      "info": "Choisissez un produit à afficher dans cette section"
-    },
-            {
-      "type": "image_picker",
-      "id": "imageProduit",
-      "label": "Sélectionner une image"
-    }
-      ]
-    },
-    {
-      "type": "V2produit_2",
-      "name": "[2] produit 2",
-      "settings": [
-   {
-      "type": "product",
-      "id": "selected_product",
-      "label": "Produit sélectionné",
-      "info": "Choisissez un produit à afficher dans cette section"
-    },
-            {
-      "type": "image_picker",
-      "id": "imageProduit",
-      "label": "Sélectionner une image"
-    }
-      ]
-    },   
-    {
-      "type": "V2produit_3",
-      "name": "[2] produit 3",
-      "settings": [
-   {
-      "type": "product",
-      "id": "selected_product",
-      "label": "Produit sélectionné",
-      "info": "Choisissez un produit à afficher dans cette section"
-    },
-            {
-      "type": "image_picker",
-      "id": "imageProduit",
-      "label": "Sélectionner une image"
-    }
-        
-      ]
-    }
-    ,
-        {
-      "type": "V3produit_1",
-      "name": "[3] produit 1",
-      "settings": [
-   {
-      "type": "product",
-      "id": "selected_product",
-      "label": "Produit sélectionné",
-      "info": "Choisissez un produit à afficher dans cette section"
-    },
-            {
-      "type": "image_picker",
-      "id": "imageProduit",
-      "label": "Sélectionner une image"
-    }
-      ]
-    },
-    {
-      "type": "V3produit_2",
-      "name": "[3] produit 2",
-      "settings": [
-   {
-      "type": "product",
-      "id": "selected_product",
-      "label": "Produit sélectionné",
-      "info": "Choisissez un produit à afficher dans cette section"
-    },
-            {
-      "type": "image_picker",
-      "id": "imageProduit",
-      "label": "Sélectionner une image"
-    }
-      ]
-    },   
-    {
-      "type": "V3produit_3",
-      "name": "[3] produit 3",
-      "settings": [
-   {
-      "type": "product",
-      "id": "selected_product",
-      "label": "Produit sélectionné",
-      "info": "Choisissez un produit à afficher dans cette section"
-    },
-            {
-      "type": "image_picker",
-      "id": "imageProduit",
-      "label": "Sélectionner une image"
-    }
-        
-      ]
-    }
-,
-        {
-      "type": "V4produit_1",
-      "name": "[4] produit 1",
-      "settings": [
-   {
-      "type": "product",
-      "id": "selected_product",
-      "label": "Produit sélectionné",
-      "info": "Choisissez un produit à afficher dans cette section"
-    },
-            {
-      "type": "image_picker",
-      "id": "imageProduit",
-      "label": "Sélectionner une image"
-    }
-      ]
-    },
-    {
-      "type": "V4produit_2",
-      "name": "[4] produit 2",
-      "settings": [
-   {
-      "type": "product",
-      "id": "selected_product",
-      "label": "Produit sélectionné",
-      "info": "Choisissez un produit à afficher dans cette section"
-    },
-            {
-      "type": "image_picker",
-      "id": "imageProduit",
-      "label": "Sélectionner une image"
-    }
-      ]
-    },   
-    {
-      "type": "V4produit_3",
-      "name": "[4] produit 3",
-      "settings": [
-   {
-      "type": "product",
-      "id": "selected_product",
-      "label": "Produit sélectionné",
-      "info": "Choisissez un produit à afficher dans cette section"
-    },
-            {
-      "type": "image_picker",
-      "id": "imageProduit",
-      "label": "Sélectionner une image"
-    }
-        
-      ]
-    }
-
-  ],
-
-  "presets": [
-    {
-      "name": "more-product"
-    
+      "name": "Section jupe pantalon"
     
     }
   ]
-}
+  }
 {% endschema %}
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-  
-
-    
-    var quatreBoxWishP1B1 = document.querySelector('.quatreBoxWishP1B1');
-    var quatreBoxWishP1B2 = document.querySelector('.quatreBoxWishP1B2');
-    var quatreBoxWishP1B3 = document.querySelector('.quatreBoxWishP1B3');
-    //2
-     var quatreBoxWishP2B1 = document.querySelector('.quatreBoxWishP2B1');
-    var quatreBoxWishP2B2 = document.querySelector('.quatreBoxWishP2B2');
-    var quatreBoxWishP2B3 = document.querySelector('.quatreBoxWishP2B3');
-    //3
-       var quatreBoxWishP3B1 = document.querySelector('.quatreBoxWishP3B1');
-    var quatreBoxWishP3B2 = document.querySelector('.quatreBoxWishP3B2');
-    var quatreBoxWishP3B3 = document.querySelector('.quatreBoxWishP3B3');
-    //4
-      var quatreBoxWishP4B1 = document.querySelector('.quatreBoxWishP4B1');
-    var quatreBoxWishP4B2 = document.querySelector('.quatreBoxWishP4B2');
-    var quatreBoxWishP4B3 = document.querySelector('.quatreBoxWishP4B3');
-    
-    
-    var Box4ImageProduitBox1 = document.getElementById('Box4ImageProduitBox1');
-    var Box4ImageProduitBox2 = document.getElementById('Box4ImageProduitBox2');
-    var Box4ImageProduitBox3 = document.getElementById('Box4ImageProduitBox3');
-    var Box4ImageProduitBox4 = document.getElementById('Box4ImageProduitBox4');
-
-
-    var Box4LinkBox1 = document.getElementById('Box4LinkBox1');
-    var Box4LinkBox2 = document.getElementById('Box4LinkBox2');
-    var Box4LinkBox3 = document.getElementById('Box4LinkBox3');
-    var Box4LinkBox4 = document.getElementById('Box4LinkBox4');
-
-
-
-
-    var box4Img1P1 = document.querySelector('.box4Img1P1');
-    var box4Img2 = document.querySelector('.box4Img2');
-    var box4Img3 = document.querySelector('.box4Img3');
-
-     var box4Img1P2 = document.querySelector('.box4Img1P2');
-    var box4Img2P2 = document.querySelector('.box4Img2P2');
-    var box4Img3P2 = document.querySelector('.box4Img3P2');
-
-        var box4Img1P3 = document.querySelector('.box4Img1P3');
-    var box4Img2P3 = document.querySelector('.box4Img2P3');
-    var box4Img3P3 = document.querySelector('.box4Img3P3');
-
-        var box4Img1P4 = document.querySelector('.box4Img1P4');
-    var box4Img2P4 = document.querySelector('.box4Img2P4');
-    var box4Img3P4 = document.querySelector('.box4Img3P4');
-
-
-    
-
-  
-
-    document.getElementById('4box-first-Link-produit-1').addEventListener('click', function() {
-            event.preventDefault();
-   {% for block in section.blocks %}
-            {% if block.type == "produit_1" %}
-              {% assign imageProduit = block.settings.imageProduit %}
-              {% assign urlProduit = block.settings.selected_product.url %}
-              {% assign product = block.settings.selected_product %}
-
-         Box4LinkBox1.href = "{{ urlProduit }}";
-
-         Box4ImageProduitBox1.src = '{{imageProduit | img_url: 'master'}}';
-          quatreBoxWishP1B1.style.display = '';
-            quatreBoxWishP1B2.style.display = 'none';
-
-           quatreBoxWishP1B3.style.display = 'none';      
-
-            {% endif %}
-          {% endfor %}
-
-  });
-       document.getElementById('4box-second-Link-produit-1').addEventListener('click', function() {
-            event.preventDefault();
- {% for block in section.blocks %}
-            {% if block.type == "produit_2" %}
-              {% assign imageProduit = block.settings.imageProduit %}
-              {% assign urlProduit = block.settings.selected_product.url %}
-              {% assign product = block.settings.selected_product %}
-
-         Box4LinkBox1.href = "{{ urlProduit }}";
-
-         Box4ImageProduitBox1.src = '{{imageProduit | img_url: 'master'}}';
-          quatreBoxWishP1B1.style.display = 'none';
-          quatreBoxWishP1B2.style.display = '';
-           quatreBoxWishP1B3.style.display = 'none';
-      
-            {% endif %}
-          {% endfor %}
-
-  });
-
-
-         document.getElementById('4box-third-Link-produit-1').addEventListener('click', function() {
-            event.preventDefault();
- {% for block in section.blocks %}
-            {% if block.type == "produit_3" %}
-              {% assign imageProduit = block.settings.imageProduit %}
-              {% assign urlProduit = block.settings.selected_product.url %}
-              {% assign product = block.settings.selected_product %}
-     
-            Box4LinkBox1.href = "{{ urlProduit }}";
-
-         Box4ImageProduitBox1.src = '{{imageProduit | img_url: 'master'}}';
-           
-          quatreBoxWishP1B1.style.display = 'none';
-     quatreBoxWishP1B2.style.display = 'none';
-           quatreBoxWishP1B3.style.display = '';
-    
-
-            {% endif %}
-          {% endfor %}
-  });
-
-
-  document.getElementById('4box-first-Link-produit-2').addEventListener('click', function() {
-            event.preventDefault();
-   {% for block in section.blocks %}
-            {% if block.type == "V2produit_1" %}
-              {% assign imageProduit = block.settings.imageProduit %}
-              {% assign urlProduit = block.settings.selected_product.url %}
-              {% assign product = block.settings.selected_product %}
-
-         Box4LinkBox2.href = "{{ urlProduit }}";
-
-         Box4ImageProduitBox2.src = '{{imageProduit | img_url: 'master'}}';
-          quatreBoxWishP2B1.style.display = '';
-            quatreBoxWishP2B2.style.display = 'none';
-           quatreBoxWishP2B3.style.display = 'none';      
-
-            {% endif %}
-          {% endfor %}
-
-  });
-       document.getElementById('4box-second-Link-produit-2').addEventListener('click', function() {
-            event.preventDefault();
- {% for block in section.blocks %}
-            {% if block.type == "V2produit_2" %}
-              {% assign imageProduit = block.settings.imageProduit %}
-              {% assign urlProduit = block.settings.selected_product.url %}
-              {% assign product = block.settings.selected_product %}
-
-         Box4LinkBox2.href = "{{ urlProduit }}";
-
-         Box4ImageProduitBox2.src = '{{imageProduit | img_url: 'master'}}';
-          quatreBoxWishP2B1.style.display = 'none';
-          quatreBoxWishP2B2.style.display = '';
-           quatreBoxWishP2B3.style.display = 'none';
-      
-            {% endif %}
-          {% endfor %}
-
-  });
-
-
-         document.getElementById('4box-third-Link-produit-2').addEventListener('click', function() {
-            event.preventDefault();
- {% for block in section.blocks %}
-            {% if block.type == "V2produit_3" %}
-              {% assign imageProduit = block.settings.imageProduit %}
-              {% assign urlProduit = block.settings.selected_product.url %}
-              {% assign product = block.settings.selected_product %}
-     
-            Box4LinkBox2.href = "{{ urlProduit }}";
-
-         Box4ImageProduitBox2.src = '{{imageProduit | img_url: 'master'}}';
-           
-          quatreBoxWishP2B1.style.display = 'none';
-     quatreBoxWishP2B2.style.display = 'none';
-           quatreBoxWishP2B3.style.display = '';
-    
-
-            {% endif %}
-          {% endfor %}
-  });
-
-
-
-//3
-
-    
-    document.getElementById('4box-first-Link-produit-3').addEventListener('click', function() {
-            event.preventDefault();
-   {% for block in section.blocks %}
-            {% if block.type == "V3produit_1" %}
-              {% assign imageProduit = block.settings.imageProduit %}
-              {% assign urlProduit = block.settings.selected_product.url %}
-              {% assign product = block.settings.selected_product %}
-
-         Box4LinkBox3.href = "{{ urlProduit }}";
-
-         Box4ImageProduitBox3.src = '{{imageProduit | img_url: 'master'}}';
-          quatreBoxWishP3B1.style.display = '';
-            quatreBoxWishP3B2.style.display = 'none';
-
-           quatreBoxWishP3B3.style.display = 'none';      
-
-            {% endif %}
-          {% endfor %}
-
-  });
-       document.getElementById('4box-second-Link-produit-3').addEventListener('click', function() {
-            event.preventDefault();
- {% for block in section.blocks %}
-            {% if block.type == "V3produit_2" %}
-              {% assign imageProduit = block.settings.imageProduit %}
-              {% assign urlProduit = block.settings.selected_product.url %}
-              {% assign product = block.settings.selected_product %}
-
-         Box4LinkBox3.href = "{{ urlProduit }}";
-
-         Box4ImageProduitBox3.src = '{{imageProduit | img_url: 'master'}}';
-          quatreBoxWishP3B1.style.display = 'none';
-          quatreBoxWishP3B2.style.display = '';
-           quatreBoxWishP3B3.style.display = 'none';
-      
-            {% endif %}
-          {% endfor %}
-
-  });
-
-
-         document.getElementById('4box-third-Link-produit-3').addEventListener('click', function() {
-            event.preventDefault();
- {% for block in section.blocks %}
-            {% if block.type == "V3produit_3" %}
-              {% assign imageProduit = block.settings.imageProduit %}
-              {% assign urlProduit = block.settings.selected_product.url %}
-              {% assign product = block.settings.selected_product %}
-     
-            Box4LinkBox3.href = "{{ urlProduit }}";
-
-         Box4ImageProduitBox3.src = '{{imageProduit | img_url: 'master'}}';
-           
-          quatreBoxWishP3B1.style.display = 'none';
-     quatreBoxWishP3B2.style.display = 'none';
-           quatreBoxWishP3B3.style.display = '';
-    
-
-            {% endif %}
-          {% endfor %}
-  });
-
-
-
-    document.getElementById('4box-first-Link-produit-4').addEventListener('click', function() {
-            event.preventDefault();
-   {% for block in section.blocks %}
-            {% if block.type == "V4produit_1" %}
-              {% assign imageProduit = block.settings.imageProduit %}
-              {% assign urlProduit = block.settings.selected_product.url %}
-              {% assign product = block.settings.selected_product %}
-
-         Box4LinkBox4.href = "{{ urlProduit }}";
-
-         Box4ImageProduitBox4.src = '{{imageProduit | img_url: 'master'}}';
-          quatreBoxWishP4B1.style.display = '';
-            quatreBoxWishP4B2.style.display = 'none';
-           quatreBoxWishP4B3.style.display = 'none';      
-            {% endif %}
-          {% endfor %}
-
-  });
-       document.getElementById('4box-second-Link-produit-4').addEventListener('click', function() {
-            event.preventDefault();
- {% for block in section.blocks %}
-            {% if block.type == "V4produit_2" %}
-              {% assign imageProduit = block.settings.imageProduit %}
-              {% assign urlProduit = block.settings.selected_product.url %}
-              {% assign product = block.settings.selected_product %}
-
-         Box4LinkBox4.href = "{{ urlProduit }}";
-
-         Box4ImageProduitBox4.src = '{{imageProduit | img_url: 'master'}}';
-          quatreBoxWishP4B1.style.display = 'none';
-          quatreBoxWishP4B2.style.display = '';
-           quatreBoxWishP4B3.style.display = 'none';
-      
-            {% endif %}
-          {% endfor %}
-
-  });
-
-
-         document.getElementById('4box-third-Link-produit-4').addEventListener('click', function() {
-            event.preventDefault();
- {% for block in section.blocks %}
-            {% if block.type == "V4produit_3" %}
-              {% assign imageProduit = block.settings.imageProduit %}
-              {% assign urlProduit = block.settings.selected_product.url %}
-              {% assign product = block.settings.selected_product %}
-     
-            Box4LinkBox4.href = "{{ urlProduit }}";
-
-         Box4ImageProduitBox4.src = '{{imageProduit | img_url: 'master'}}';
-           
-          quatreBoxWishP4B1.style.display = 'none';
-     quatreBoxWishP4B2.style.display = 'none';
-           quatreBoxWishP4B3.style.display = '';
-    
-
-            {% endif %}
-          {% endfor %}
-  });
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    
-});
-
-
-
-</script>
-
-
-{% javascript %}
-
-{% endjavascript %}
