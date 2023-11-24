@@ -1,0 +1,778 @@
+<style>
+@font-face {
+  font-family: "CoralLovers";
+  src: url("https://cdn.shopify.com/s/files/1/0551/2213/3067/files/CoralLovers.otf?v=1700676428") format("OTF");
+}
+
+  @font-face {
+  font-family: "Prompt-light-italic";
+  src: url("https://cdn.shopify.com/s/files/1/0551/2213/3067/files/Prompt-LightItalic.ttf?v=1700676914") format("TTF");
+}
+
+.section-custom-trois-box h5 {
+  font-size: 1rem;
+}
+ 
+  
+      .section-custom-trois-box .main-flexbox {
+        display: flex;
+        height: 688px;
+        object-fit: contain;
+
+
+      }
+
+      .section-custom-trois-box .sub-flexbox {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        object-fit: contain;
+
+      }
+
+      .section-custom-trois-box .sub-flexbox-image {
+        height: 600px;
+        object-fit: contain;
+        
+
+      }
+
+      .section-custom-trois-box .sub-flexbox-image img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover ;        
+
+      }
+
+
+      .section-custom-trois-box .sub-flexbox-image>.centered-content {
+        text-align: center;
+        font-size: 32px;
+        line-height: 35.5px;
+        padding-right: 10%;
+        padding-left: 10%;
+
+      }
+
+      .section-custom-trois-box .button-decouvrez {
+        position: absolute;
+        top: 530px;
+        left: 24px;
+        bot: 24px;
+        width: auto;
+        /* Ajoutez la largeur souhaitée lorsqu'il est survolé */
+        color: #fff;
+        background-color: rgba(255, 255, 255, .17);
+        border: 1px solid #fff;
+        padding: 12px 24px;
+        text-align: center;
+        transition: border-color 0.3s;
+        box-sizing: border-box;
+        text-decoration: none;
+        /* Enlève le soulignement */
+        font-size: 1.75rem;
+
+      }
+
+      .section-custom-trois-box .button-decouvrez:hover {
+        border: 2px solid #fff;
+
+      }
+
+      .section-custom-trois-box .sub-flexbox-item {
+      display: flex;
+      height: 88px;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      align-content: center;
+      object-fit:contain;
+      }
+
+
+
+      .section-custom-trois-box .sub-flexbox-item .div-element {
+    max-height: 100%;
+      object-fit:contain;
+      width: 100%;
+      margin: 12px 16px;
+      justify-content: space-between;
+
+      }
+
+      .section-custom-trois-box .section-1 {
+   justify-content: space-between;
+      display: flex;
+
+      }
+
+      .section-custom-trois-box .section-2 {
+    justify-content: space-between;
+      display: flex;
+      align-items: center; /* Align items vertically in the center */
+
+      }
+
+      .section-custom-trois-box .div-button {
+        font-size: 0;
+        justify-content: flex-end;
+        display: flex;
+        
+      }
+
+      .section-custom-trois-box .link-block {
+        padding-left: 5px;
+      }
+
+      .section-custom-trois-box .cercle {
+        border: 1px solid #000;
+        border-radius: 20px;
+
+
+      }
+ 
+    
+
+      @media screen and (max-width: 600px) {
+        .section-custom-trois-box .main-flexbox {
+          flex-direction: column;
+          align-items: flex-start;
+          display: flex;
+          height: auto;
+
+        }
+
+        .section-custom-trois-box .sub-flexbox {
+          width: 100%;
+        }
+
+      }
+    </style>
+
+
+  
+
+    
+
+
+
+
+
+    <div class="section-custom-trois-box">
+      <div class="main-flexbox">
+        <div class="sub-flexbox">
+          <div class="sub-flexbox-image">
+
+            {% for block in section.blocks %}
+              {% if block.type == "produit_1" %}
+                {% assign imageProduit1 = block.settings.imageProduit %}
+                   <img src="{{ imageProduit1 | img_url: 'master' }}" alt="Image sélectionnée" loading="lazy" sizes="(max-width: 767px) 100vw, 33vw" id="imageProduitBox1"/>
+            {% endif %}
+          {% endfor %}
+
+
+          </div>
+          <div class="sub-flexbox-item">
+
+            <div class="div-element">
+
+              <section class="section-1">
+                <div><h5>Ensemble Robe plissée et Kimono Saphir</h5></div>
+                <div><h5>115€</h5></div>
+              </section>
+
+              <section class="section-2">
+                <div><h5>S M L XL</h5></div>
+                <div class="div-button" >            
+           {% if section.settings.color_button.alpha > 0 %}
+            <a href="#" class="link-block" id="firstLinkBlockProduit1">
+                <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.color_button }};" width="12" height="12" class="cercle" >
+            </a>
+        {% endif %}
+         {% if section.settings.color_button2.alpha > 0 %}
+            <a href="#" class="link-block" id="secondLinkBlockProduit1">
+                <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.color_button2 }};" width="12" height="12" class="cercle" >
+            </a>
+        {% endif %}
+{% if section.settings.color_button3.alpha > 0 %}
+            <a href="#" class="link-block" id="thirdLinkBlockProduit1">
+                <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.color_button3 }};" width="12" height="12" class="cercle" >
+            </a>
+        {% endif %}
+
+                </div>
+
+              </section>
+
+
+            </div> 
+
+          </div>
+        </div>
+
+
+ 
+        <div class="sub-flexbox">
+          <div class="sub-flexbox-image">
+               {% for block in section.blocks %}
+                {% if block.type == "V2produit_1" %}
+                    {% assign imageProduit1 = block.settings.imageProduit %}
+          <img src="{{ imageProduit1 | img_url: 'master' }}" loading="lazy" sizes="(max-width: 767px) 100vw, 33vw"  alt="" id="imageProduitBox2"/>
+
+                {% endif %}
+            {% endfor %}
+            
+          </div>
+          <div class="sub-flexbox-item">
+ <div class="div-element">
+
+              <section class="section-1">
+                <div><h5>Ensemble Top et jupe plissés Serenity</h5></div>
+                <div><h5>89€</h5></div>
+              </section>
+
+              <section class="section-2" >
+                <div><h5>S M L XL</h5></div>
+                <div class="div-button">
+      
+        {% if section.settings.V2color_button1.alpha > 0 %}
+            <a href="#" class="link-block" id="firstLinkBlockProduit2">
+                <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.V2color_button1 }};" width="12" height="12" class="cercle" >
+            </a>
+        {% endif %}
+         {% if section.settings.V2color_button2.alpha > 0 %}
+            <a href="#" class="link-block" id="secondLinkBlockProduit2">
+                <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.V2color_button2 }};" width="12" height="12" class="cercle" >
+            </a>
+        {% endif %}
+{% if section.settings.V2color_button3.alpha > 0 %}
+            <a href="#" class="link-block" id="thirdLinkBlockProduit2">
+                <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.V2color_button3 }};" width="12" height="12" class="cercle" >
+            </a>
+        {% endif %}
+
+              
+                  
+            
+
+                </div>
+
+              </section>
+
+
+            </div>
+
+
+            
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+        <div class="sub-flexbox">
+          <div class="sub-flexbox-image">
+
+
+            {% for block in section.blocks %}
+                {% if block.type == "V3produit_1" %}
+                    {% assign imageProduit1 = block.settings.imageProduit %}
+          <img src="{{ imageProduit1 | img_url: 'master' }}" loading="lazy" sizes="(max-width: 767px) 100vw, 33vw"  alt="" id="imageProduitBox2"/>
+
+                {% endif %}
+            {% endfor %}
+
+
+
+
+
+          </div>
+          <div class="sub-flexbox-item">
+
+
+            <div class="div-element">
+
+              <section class="section-1">
+                <div><h5>Ensemble Top et jupe plissés Serenity</h5></div>
+                <div><h5>89€</h5></div>
+              </section>
+
+              <section class="section-2" >
+                <div><h5>S M L XL</h5></div>
+                <div class="div-button">
+      
+        {% if section.settings.V2color_button1.alpha > 0 %}
+            <a href="#" class="link-block" id="firstLinkBlockProduit2">
+                <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.V2color_button1 }};" width="12" height="12" class="cercle" >
+            </a>
+        {% endif %}
+         {% if section.settings.V3color_button2.alpha > 0 %}
+            <a href="#" class="link-block" id="secondLinkBlockProduit2">
+                <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.V2color_button2 }};" width="12" height="12" class="cercle" >
+            </a>
+        {% endif %}
+{% if section.settings.V3color_button3.alpha > 0 %}
+            <a href="#" class="link-block" id="thirdLinkBlockProduit2">
+                <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.V2color_button3 }};" width="12" height="12" class="cercle" >
+            </a>
+        {% endif %}
+
+              
+                  
+            
+
+                </div>
+
+              </section>
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% schema %}
+{
+  "name": "trois-box",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+       {
+      "type": "product",
+      "id": "selected_product",
+      "label": "Produit sélectionné",
+      "info": "Choisissez un produit à afficher dans cette section"
+    },
+        {
+      "type": "image_picker",
+      "id": "forme",
+      "label": "Sélectionner une forme "
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text"
+      },
+       {
+      "type": "url",
+      "id": "button_link2",
+      "label": "Button Link 2"
+    },
+      {
+        "type": "text",
+        "id": "button_text2",
+        "label": "Button Text 2"
+      },
+     {
+      "type": "color",
+      "id": "color_button",
+      "label": "Couleur du bouton"
+    },
+     {
+      "type": "color",
+      "id": "color_button2",
+      "label": "Couleur du bouton 2"
+    },
+      {
+      "type": "color",
+      "id": "color_button3",
+      "label": "Couleur du bouton 3"
+    },
+      {
+      "type": "color",
+      "id": "V2color_button1",
+      "label": "Couleur du bouton produit 2"
+    },
+       {
+      "type": "color",
+      "id": "V2color_button2",
+      "label": "Couleur du bouton 2 produit 2"
+    },
+       {
+      "type": "color",
+      "id": "V2color_button3",
+      "label": "Couleur du bouton  3 produit 2"
+    },
+        {
+      "type": "color",
+      "id": "V3color_button1",
+      "label": "Couleur du bouton produit 3"
+    },
+       {
+      "type": "color",
+      "id": "V3color_button2",
+      "label": "Couleur du bouton 2 produit 3"
+    },
+       {
+      "type": "color",
+      "id": "V3color_button3",
+      "label": "Couleur du bouton  3 produit 3"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "produit_1",
+      "name": "[1] produit 1",
+      "settings": [
+   {
+      "type": "product",
+      "id": "selected_product",
+      "label": "Produit sélectionné",
+      "info": "Choisissez un produit à afficher dans cette section"
+    },
+            {
+      "type": "image_picker",
+      "id": "imageProduit",
+      "label": "Sélectionner une image"
+    }
+      ]
+    },
+
+     {
+      "type": "produit_2",
+      "name": "[1] produit 2",
+      "settings": [
+   {
+      "type": "product",
+      "id": "selected_product",
+      "label": "Produit sélectionné",
+      "info": "Choisissez un produit à afficher dans cette section"
+    },
+            {
+      "type": "image_picker",
+      "id": "imageProduit",
+      "label": "Sélectionner une image"
+    }
+        
+      ]
+    },
+    {
+      "type": "produit_3",
+      "name": "[1] produit 3",
+      "settings": [
+   {
+      "type": "product",
+      "id": "selected_product",
+      "label": "Produit sélectionné",
+      "info": "Choisissez un produit à afficher dans cette section"
+    },
+            {
+      "type": "image_picker",
+      "id": "imageProduit",
+      "label": "Sélectionner une image"
+    }
+        
+      ]
+    },
+        {
+      "type": "V2produit_1",
+      "name": "[2] produit 1",
+      "settings": [
+   {
+      "type": "product",
+      "id": "selected_product",
+      "label": "Produit sélectionné",
+      "info": "Choisissez un produit à afficher dans cette section"
+    },
+            {
+      "type": "image_picker",
+      "id": "imageProduit",
+      "label": "Sélectionner une image"
+    }
+      ]
+    },
+    {
+      "type": "V2produit_2",
+      "name": "[2] produit 2",
+      "settings": [
+   {
+      "type": "product",
+      "id": "selected_product",
+      "label": "Produit sélectionné",
+      "info": "Choisissez un produit à afficher dans cette section"
+    },
+            {
+      "type": "image_picker",
+      "id": "imageProduit",
+      "label": "Sélectionner une image"
+    }
+      ]
+    },   
+    {
+      "type": "V2produit_3",
+      "name": "[2] produit 3",
+      "settings": [
+   {
+      "type": "product",
+      "id": "selected_product",
+      "label": "Produit sélectionné",
+      "info": "Choisissez un produit à afficher dans cette section"
+    },
+            {
+      "type": "image_picker",
+      "id": "imageProduit",
+      "label": "Sélectionner une image"
+    }
+      ]
+    },
+     {
+      "type": "V3produit_1",
+      "name": "[3] produit 1",
+      "settings": [
+   {
+      "type": "product",
+      "id": "selected_product",
+      "label": "Produit sélectionné",
+      "info": "Choisissez un produit à afficher dans cette section"
+    },
+            {
+      "type": "image_picker",
+      "id": "imageProduit",
+      "label": "Sélectionner une image"
+    }
+      ]
+    },
+    {
+      "type": "V3produit_2",
+      "name": "[3] produit 2",
+      "settings": [
+   {
+      "type": "product",
+      "id": "selected_product",
+      "label": "Produit sélectionné",
+      "info": "Choisissez un produit à afficher dans cette section"
+    },
+            {
+      "type": "image_picker",
+      "id": "imageProduit",
+      "label": "Sélectionner une image"
+    }
+      ]
+    },   
+    {
+      "type": "V3produit_3",
+      "name": "[3] produit 3",
+      "settings": [
+   {
+      "type": "product",
+      "id": "selected_product",
+      "label": "Produit sélectionné",
+      "info": "Choisissez un produit à afficher dans cette section"
+    },
+            {
+      "type": "image_picker",
+      "id": "imageProduit",
+      "label": "Sélectionner une image"
+    }
+      ]
+    }
+
+
+
+  ],
+
+  "presets": [
+    {
+      "name": "trois-box"
+    
+    
+    }
+  ]
+}
+{% endschema %}
+
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+
+    
+
+    var infoContainer = document.getElementById('infoContainer');
+    var firstLinkBlockProduit1 = document.getElementById('firstLinkBlockProduit1');
+    var secondLinkBlockProduit1 = document.getElementById('secondLinkBlockProduit1');
+    var thirdLinkBlockProduit1 = document.getElementById('thirdLinkBlockProduit1');
+   var imageProduitBox1 = document.getElementById('imageProduitBox1');
+   var decouvreProduit1 = document.getElementById('decouvreProduit1');
+    var firstLinkBlockProduit2 = document.getElementById('firstLinkBlockProduit2');
+    var secondLinkBlockProduit2 = document.getElementById('secondLinkBlockProduit2');
+    var thirdLinkBlockProduit2 = document.getElementById('thirdLinkBlockProduit2');
+   var imageProduitBox2 = document.getElementById('imageProduitBox2');
+   var decouvreProduit2 = document.getElementById('decouvreProduit2');
+    var myButton = document.getElementById('myButton');
+ 
+    {% for block in section.blocks %}
+              {% if block.type == "produit_1" %}
+                {% assign selected_product  = block.settings.selected_product %}
+                console.log("test : " + "{{selected_product.title}}");
+            {% endif %}
+          {% endfor %}
+
+      myButton.addEventListener('click', function() {
+        // Appeler la fonction pour changer l'image
+
+        changeImage();
+      });
+      
+      // Fonction pour changer l'image
+      function changeImage() {
+
+    if (myButton.textContent === 'Changer le texte') {
+    // Changer le texte vers une nouvelle valeur
+    myButton.textContent = 'Nouveau texte';
+  } else {
+    // Changer le texte vers la valeur d'origine
+    myButton.textContent = 'Changer le texte';
+  }
+        
+        if (myImage.src.endsWith('image1.jpg')) {
+          myImage.src = 'image2.jpg';
+        } else {
+          myImage.src = 'image1.jpg';
+        }
+      }
+  
+
+
+     firstLinkBlockProduit1.addEventListener('click', function() {
+      event.preventDefault();
+      {% for block in section.blocks %}
+            {% if block.type == "produit_1" %}
+              {% assign imageProduit = block.settings.imageProduit %}
+              {% assign urlProduit = block.settings.selected_product.url %}
+
+              imageProduitBox1.src = "{{ imageProduit | img_url: 'master' }}";
+              decouvreProduit1.href = "{{ urlProduit }}" ;
+            {% endif %}
+          {% endfor %}
+
+    });
+
+    secondLinkBlockProduit1.addEventListener('click', function(event) {
+      event.preventDefault();
+      {% for block in section.blocks %}
+      {% if block.type == "produit_2" %}
+        {% assign imageProduit = block.settings.imageProduit %}
+        {% assign urlProduit = block.settings.selected_product.url %}
+
+        imageProduitBox1.src = "{{ imageProduit | img_url: 'master' }}";
+        decouvreProduit1.href = "{{ urlProduit }}" ;
+
+      {% endif %}
+    {% endfor %}
+
+    });
+
+ thirdLinkBlockProduit1.addEventListener('click', function() {
+      event.preventDefault();
+      {% for block in section.blocks %}
+            {% if block.type == "produit_3" %}
+              {% assign imageProduit = block.settings.imageProduit %}
+              {% assign urlProduit = block.settings.selected_product.url %}
+
+              imageProduitBox1.src = "{{ imageProduit | img_url: 'master' }}";
+              decouvreProduit1.href = "{{ urlProduit }}" ;
+
+            {% endif %}
+          {% endfor %}
+
+      
+    });
+
+       firstLinkBlockProduit2.addEventListener('click', function() {
+      event.preventDefault();
+      {% for block in section.blocks %}
+            {% if block.type == "V2produit_1" %}
+              {% assign imageProduit = block.settings.imageProduit %}
+              {% assign urlProduit = block.settings.selected_product.url %}
+
+              imageProduitBox2.src = "{{ imageProduit | img_url: 'master' }}";
+              decouvreProduit2.href = "{{ urlProduit }}" ;
+            {% endif %}
+          {% endfor %}
+
+    });
+
+       secondLinkBlockProduit2.addEventListener('click', function() {
+      event.preventDefault();
+      {% for block in section.blocks %}
+            {% if block.type == "V2produit_2" %}
+              {% assign imageProduit = block.settings.imageProduit %}
+              {% assign urlProduit = block.settings.selected_product.url %}
+
+              imageProduitBox2.src = "{{ imageProduit | img_url: 'master' }}";
+              decouvreProduit2.href = "{{ urlProduit }}" ;
+            {% endif %}
+          {% endfor %}
+
+    });
+
+
+    thirdLinkBlockProduit2.addEventListener('click', function() {
+      event.preventDefault();
+      {% for block in section.blocks %}
+            {% if block.type == "V2produit_3" %}
+              {% assign imageProduit = block.settings.imageProduit %}
+              {% assign urlProduit = block.settings.selected_product.url %}
+
+              imageProduitBox2.src = "{{ imageProduit | img_url: 'master' }}";
+              decouvreProduit2.href = "{{ urlProduit }}" ;
+            {% endif %}
+          {% endfor %}
+
+    });
+
+
+    
+    });
+
+
+  </script>
+
+
+{% javascript %}
+
+  <!-- Votre contenu de section précédent -->
+
+
+
+{% endjavascript %}
