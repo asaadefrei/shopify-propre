@@ -1,0 +1,1280 @@
+<style>
+@font-face {
+  font-family: "CoralLovers";
+  src: url("https://cdn.shopify.com/s/files/1/0551/2213/3067/files/CoralLovers.otf?v=1700676428") format("OTF");
+}
+
+  @font-face {
+  font-family: "Prompt-light-italic";
+  src: url("https://cdn.shopify.com/s/files/1/0551/2213/3067/files/Prompt-LightItalic.ttf?v=1700676914") format("TTF");
+}
+
+.section-custom-trois-box h5 {
+  font-size: 1rem;
+}
+ 
+  
+      .section-custom-trois-box .main-flexbox {
+        display: flex;
+        height: 688px;
+        object-fit: contain;
+
+
+      }
+
+      .section-custom-trois-box .sub-flexbox {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        object-fit: contain;
+
+      }
+
+      .section-custom-trois-box .sub-flexbox-image {
+        height: 600px;
+        object-fit: contain;
+        
+
+      }
+   .section-custom-trois-box .anotation {
+  position: absolute;
+      top: 8px;
+      left: 24px;
+      width: 100px;
+      font-size: 1.5rem;
+        color: #222222;
+    }
+  
+    .section-custom-trois-box h5 {
+     color: #222222;
+
+
+    }
+      .section-custom-trois-box span {
+        color: #C2565E; 
+
+    }
+    .section-custom-trois-box .promo {
+        text-decoration: line-through;
+    }
+   .section-custom-trois-box .button-wishlist {
+      position: absolute;
+      top: 21px;
+      right: 15px;
+      border:none;
+      background-color: transparent;
+      outline: none;
+
+    }
+
+      .section-custom-trois-box .sub-flexbox-image img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover ;        
+
+      }
+
+
+      .section-custom-trois-box .sub-flexbox-image>.centered-content {
+        text-align: center;
+        font-size: 32px;
+        line-height: 35.5px;
+        padding-right: 10%;
+        padding-left: 10%;
+
+      }
+
+      .section-custom-trois-box .button-decouvrez {
+        position: absolute;
+        top: 530px;
+        left: 24px;
+        bot: 24px;
+        width: auto;
+        /* Ajoutez la largeur souhaitée lorsqu'il est survolé */
+        color: #fff;
+        background-color: rgba(255, 255, 255, .17);
+        border: 1px solid #fff;
+        padding: 12px 24px;
+        text-align: center;
+        transition: border-color 0.3s;
+        box-sizing: border-box;
+        text-decoration: none;
+        /* Enlève le soulignement */
+        font-size: 1.75rem;
+
+      }
+
+      .section-custom-trois-box .button-decouvrez:hover {
+        border: 2px solid #fff;
+
+      }
+
+      .section-custom-trois-box .sub-flexbox-item {
+      display: flex;
+      height: 88px;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      align-content: center;
+      object-fit:contain;
+      }
+
+
+
+      .section-custom-trois-box .sub-flexbox-item .div-element {
+    max-height: 100%;
+      object-fit:contain;
+      width: 100%;
+      margin: 12px 16px;
+      justify-content: space-between;
+
+      }
+
+      .section-custom-trois-box .section-1 {
+   justify-content: space-between;
+      display: flex;
+
+      }
+
+      .section-custom-trois-box .section-2 {
+    justify-content: space-between;
+      display: flex;
+      align-items: center; /* Align items vertically in the center */
+      margin-top: -15px;
+      }
+
+      .section-custom-trois-box .div-button {
+        font-size: 0;
+        justify-content: flex-end;
+        display: flex;
+        
+      }
+
+      .section-custom-trois-box .link-block {
+        padding-left: 5px;
+      }
+
+      .section-custom-trois-box .cercle {
+        border: 1px solid #000;
+        border-radius: 20px;
+
+
+      }
+ 
+    
+
+      @media screen and (max-width: 600px) {
+        .section-custom-trois-box .main-flexbox {
+          flex-direction: column;
+          align-items: flex-start;
+          display: flex;
+          height: auto;
+
+        }
+
+        .section-custom-trois-box .sub-flexbox {
+          width: 100%;
+        }
+
+      }
+
+    @media screen and (max-width: 400px) {
+
+
+     .section-custom-trois-box .sub-flexbox-image {
+        height: 450px;
+        
+
+      }
+
+    }
+    </style>
+
+
+  
+
+    
+
+
+
+
+
+    <div class="section-custom-trois-box">
+      <div class="main-flexbox">
+        <div class="sub-flexbox">
+          <div class="sub-flexbox-image">
+           <div style="position: relative; ">
+
+
+ {% for block in section.blocks %}
+  {% if block.type == 'produit_1' %}
+    {% assign product = block.settings.selected_product %}
+  <button class="my-icon-filled button-wishlist  swym-add-to-wishlist swym-iconbtnlink swym-heart swym-added btn1 swym-loaded threeBoxWishP1B1" 
+    data-with-epi="true" 
+    data-swaction="addToWishlist"
+    data-product-id="{{ product.id }}" 
+    data-variant-id="{{ product.variants[0].id }}"
+    data-product-url="{{ shop.url }}{{ product.url }}"
+   >
+        <img src="{{ section.settings.wishlist-heart-void | img_url: 'master' }}" alt="Image sélectionnée" style="height:25px;width:25px;background-color: transparent;" class="box4Img1P4"/>
+</button>
+
+       
+  {% endif %}
+
+       {% if block.type == 'produit_2' %}
+    {% assign product = block.settings.selected_product %}
+  <button class="button-wishlist my-icon-filled swym-add-to-wishlist swym-iconbtnlink swym-heart swym-added swym-loaded threeBoxWishP1B2" style="display:none;"
+    data-with-epi="true" 
+    data-swaction="addToWishlist"
+    data-product-id="{{ product.id }}" 
+    data-variant-id="{{ product.variants[0].id }}"
+    data-product-url="{{ shop.url }}{{ product.url }}"
+   >
+        <img src="{{ section.settings.wishlist-heart-void | img_url: 'master' }}" alt="Image sélectionnée" style="height:25px;width:25px;background-color: transparent;" class="box4Img2P4"/>
+</button>
+  {% endif %}
+    {% if block.type == 'produit_3' %}
+    {% assign product = block.settings.selected_product %}
+  <button class="button-wishlist my-icon-filled swym-add-to-wishlist swym-iconbtnlink swym-heart swym-added swym-loaded threeBoxWishP1B3" style="display:none;"
+    data-with-epi="true" 
+    data-swaction="addToWishlist"
+    data-product-id="{{ product.id }}" 
+    data-variant-id="{{ product.variants[0].id }}"
+    data-product-url="{{ shop.url }}{{ product.url }}"
+   >
+        <img src="{{ section.settings.wishlist-heart-void | img_url: 'master' }}" alt="Image sélectionnée" style="height:25px;width:25px;background-color: transparent;" class="box4Img3P4"/>
+</button>
+  {% endif %}
+{% endfor %}
+
+
+              
+            </div>
+
+
+            
+     {% if section.settings.promoText %}
+       
+          <div style="position: relative; ">
+            <p class="anotation">{{ section.settings.promoText}}</p>
+          </div>
+          {% endif %}
+
+            {% for block in section.blocks %}
+              {% if block.type == "produit_1" %}
+            {% assign imageProduit1 = block.settings.imageProduit %}
+                <a href="{{  block.settings.selected_product.url }}" id="promoTroisBoxLinkProduitBox1">
+                   <img src="{{ imageProduit1 | img_url: 'master' }}" alt="Image sélectionnée" loading="lazy" sizes="(max-width: 767px) 100vw, 33vw" id="promoTroisBoxImageProduitBox1"/>
+           </a>
+        {% endif %}
+             
+          {% endfor %}
+
+
+          </div>
+          <div class="sub-flexbox-item">
+
+            <div class="div-element">
+
+              <section class="section-1">
+      {% for block in section.blocks %}
+                {% if block.type == "produit_1" %}
+                {% assign titre = block.settings.titre %}
+               {% assign prix = block.settings.prix %}
+               {% assign prixPromo = block.settings.prixPromo %}
+
+               <div><h5 style="font-size:1rem;" id="troisBoxPromoTitreProduit1">{{ titre }} </h5></div>
+                <div><h5 style="font-size:1rem;"> <span class="promo" style="color:#222222;">{{ prix }}</span> <span>{{ prixPromo }}</span></h5></div>
+            
+
+            {% endif %}
+          {% endfor %}
+              </section>
+
+              <section class="section-2">
+                <div><h5>S M L XL</h5></div>
+                <div class="div-button" >            
+           {% if section.settings.color_button.alpha > 0 %}
+            <a href="#" class="link-block" id="promoTroisBoxfirstLinkBlockProduit1">
+                <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.color_button }};" width="12" height="12" class="cercle" >
+            </a>
+        {% endif %}
+         {% if section.settings.color_button2.alpha > 0 %}
+            <a href="#" class="link-block" id="promoTroisBoxSecondLinkBlockProduit1">
+                <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.color_button2 }};" width="12" height="12" class="cercle" >
+            </a>
+        {% endif %}
+{% if section.settings.color_button3.alpha > 0 %}
+            <a href="#" class="link-block" id="promoTroisBoxThirdLinkBlockProduit1">
+                <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.color_button3 }};" width="12" height="12" class="cercle" >
+            </a>
+        {% endif %}
+
+                </div>
+
+              </section>
+
+
+            </div> 
+
+          </div>
+        </div>
+
+
+ 
+        <div class="sub-flexbox">
+          <div class="sub-flexbox-image">
+
+           <div style="position: relative; ">
+
+{% if section.settings.wishlist-heart-void %} 
+ {% for block in section.blocks %}
+  {% if block.type == 'V2produit_1' %}
+    {% assign product = block.settings.selected_product %}
+  <button class="my-icon-filled button-wishlist  swym-add-to-wishlist swym-iconbtnlink swym-heart swym-added btn1 swym-loaded threeBoxWishP2B1" 
+    data-with-epi="true" 
+    data-swaction="addToWishlist"
+    data-product-id="{{ product.id }}" 
+    data-variant-id="{{ product.variants[0].id }}"
+    data-product-url="{{ shop.url }}{{ product.url }}"
+   >
+        <img src="{{ section.settings.wishlist-heart-void | img_url: 'master' }}" alt="Image sélectionnée" style="height:25px;width:25px;background-color: transparent;" class="box4Img1P4"/>
+</button>
+
+       
+  {% endif %}
+
+       {% if block.type == 'V2produit_2' %}
+    {% assign product = block.settings.selected_product %}
+  <button class="button-wishlist my-icon-filled swym-add-to-wishlist swym-iconbtnlink swym-heart swym-added swym-loaded threeBoxWishP2B2" style="display:none;"
+    data-with-epi="true" 
+    data-swaction="addToWishlist"
+    data-product-id="{{ product.id }}" 
+    data-variant-id="{{ product.variants[0].id }}"
+    data-product-url="{{ shop.url }}{{ product.url }}"
+   >
+        <img src="{{ section.settings.wishlist-heart-void | img_url: 'master' }}" alt="Image sélectionnée" style="height:25px;width:25px;background-color: transparent;" class="box4Img2P4"/>
+</button>
+  {% endif %}
+    {% if block.type == 'V2produit_3' %}
+    {% assign product = block.settings.selected_product %}
+  <button class="button-wishlist my-icon-filled swym-add-to-wishlist swym-iconbtnlink swym-heart swym-added swym-loaded threeBoxWishP2B3" style="display:none;"
+    data-with-epi="true" 
+    data-swaction="addToWishlist"
+    data-product-id="{{ product.id }}" 
+    data-variant-id="{{ product.variants[0].id }}"
+    data-product-url="{{ shop.url }}{{ product.url }}"
+   >
+        <img src="{{ section.settings.wishlist-heart-void | img_url: 'master' }}" alt="Image sélectionnée" style="height:25px;width:25px;background-color: transparent;" class="box4Img3P4"/>
+</button>
+  {% endif %}
+{% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              
+            </div>
+
+            
+                 {% if section.settings.promoText %}
+          <div style="position: relative; ">
+            <p class="anotation">{{ section.settings.promoText}}</p>
+          </div>
+          {% endif %}
+          
+               {% for block in section.blocks %}
+                {% if block.type == "V2produit_1" %}
+                    {% assign imageProduit1 = block.settings.imageProduit %}
+                                  <a href="{{  block.settings.selected_product.url }}" id="promoTroisBoxLinkProduitBox2">
+
+          <img src="{{ imageProduit1 | img_url: 'master' }}" loading="lazy" sizes="(max-width: 767px) 100vw, 33vw"  alt="" id="promoTroisBoxImageProduitBox2"/>
+                                  </a>
+                {% endif %}
+            {% endfor %}
+            
+          </div>
+          <div class="sub-flexbox-item">
+ <div class="div-element">
+
+              <section class="section-1">
+                                   {% for block in section.blocks %}
+                {% if block.type == "V2produit_1" %}
+                {% assign titre = block.settings.titre %}
+               {% assign prix = block.settings.prix %}
+               {% assign prixPromo = block.settings.prixPromo %}
+
+               <div><h5 style="font-size:1rem;"  id="troisBoxPromoTitreProduit2">{{ titre }} </h5></div>
+                <div><h5 style="font-size:1rem;"> <span class="promo" style="color:#222222;">{{ prix }}</span> <span>{{ prixPromo }}</span></h5></div>
+            
+
+            {% endif %}
+          {% endfor %}
+              </section>
+
+              <section class="section-2" >
+                <div><h5>S M L XL</h5></div>
+                <div class="div-button">
+      
+        {% if section.settings.V2color_button1.alpha > 0 %}
+            <a href="#" class="link-block" id="promoTroisBoxFirstLinkBlockProduit2">
+                <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.V2color_button1 }};" width="12" height="12" class="cercle" >
+            </a>
+        {% endif %}
+         {% if section.settings.V2color_button2.alpha > 0 %}
+            <a href="#" class="link-block" id="promoTroisBoxSecondLinkBlockProduit2">
+                <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.V2color_button2 }};" width="12" height="12" class="cercle" >
+            </a>
+        {% endif %}
+{% if section.settings.V2color_button3.alpha > 0 %}
+            <a href="#" class="link-block" id="promoTroisBoxThirdLinkBlockProduit2">
+                <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.V2color_button3 }};" width="12" height="12" class="cercle" >
+            </a>
+        {% endif %}
+
+              
+                  
+            
+
+                </div>
+
+              </section>
+
+
+            </div>
+
+
+            
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+        <div class="sub-flexbox">
+          <div class="sub-flexbox-image">
+           <div style="position: relative; ">
+
+
+ {% for block in section.blocks %}
+  {% if block.type == 'V3produit_1' %}
+    {% assign product = block.settings.selected_product %}
+  <button class="my-icon-filled button-wishlist  swym-add-to-wishlist swym-iconbtnlink swym-heart swym-added btn1 swym-loaded threeBoxWishP3B1" 
+    data-with-epi="true" 
+    data-swaction="addToWishlist"
+    data-product-id="{{ product.id }}" 
+    data-variant-id="{{ product.variants[0].id }}"
+    data-product-url="{{ shop.url }}{{ product.url }}"
+   >
+        <img src="{{ section.settings.wishlist-heart-void | img_url: 'master' }}" alt="Image sélectionnée" style="height:25px;width:25px;background-color: transparent;" class="box4Img1P4"/>
+</button>
+
+       
+  {% endif %}
+
+       {% if block.type == 'V3produit_2' %}
+    {% assign product = block.settings.selected_product %}
+  <button class="button-wishlist my-icon-filled swym-add-to-wishlist swym-iconbtnlink swym-heart swym-added swym-loaded threeBoxWishP3B2" style="display:none;"
+    data-with-epi="true" 
+    data-swaction="addToWishlist"
+    data-product-id="{{ product.id }}" 
+    data-variant-id="{{ product.variants[0].id }}"
+    data-product-url="{{ shop.url }}{{ product.url }}"
+   >
+        <img src="{{ section.settings.wishlist-heart-void | img_url: 'master' }}" alt="Image sélectionnée" style="height:25px;width:25px;background-color: transparent;" class="box4Img2P4"/>
+</button>
+  {% endif %}
+    {% if block.type == 'V3produit_3' %}
+    {% assign product = block.settings.selected_product %}
+  <button class="button-wishlist my-icon-filled swym-add-to-wishlist swym-iconbtnlink swym-heart swym-added swym-loaded threeBoxWishP3B3" style="display:none;"
+    data-with-epi="true" 
+    data-swaction="addToWishlist"
+    data-product-id="{{ product.id }}" 
+    data-variant-id="{{ product.variants[0].id }}"
+    data-product-url="{{ shop.url }}{{ product.url }}"
+   >
+        <img src="{{ section.settings.wishlist-heart-void | img_url: 'master' }}" alt="Image sélectionnée" style="height:25px;width:25px;background-color: transparent;" class="box4Img3P4"/>
+</button>
+  {% endif %}
+{% endfor %}
+  {% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              
+            </div>
+            
+        {% if section.settings.promoText %}
+          <div style="position: relative; ">
+            <p class="anotation">{{ section.settings.promoText}}</p>
+          </div>
+          {% endif %}
+
+            {% for block in section.blocks %}
+                {% if block.type == "V3produit_1" %}
+                    {% assign imageProduit1 = block.settings.imageProduit %}
+                   <a href="{{  block.settings.selected_product.url }}" id="promoTroisBoxLinkProduitBox3">
+          <img src="{{ imageProduit1 | img_url: 'master' }}" loading="lazy" sizes="(max-width: 767px) 100vw, 33vw"  alt="" id="promoTroisBoxImageProduitBox3"/>
+                   </a>
+                {% endif %}
+            {% endfor %}
+
+
+
+
+
+          </div>
+          <div class="sub-flexbox-item">
+
+
+            <div class="div-element">
+
+              <section class="section-1">
+                       {% for block in section.blocks %}
+                {% if block.type == "V3produit_1" %}
+                {% assign titre = block.settings.titre %}
+               {% assign prix = block.settings.prix %}
+               {% assign prixPromo = block.settings.prixPromo %}
+
+               <div><h5 style="font-size:1rem;"  id="troisBoxPromoTitreProduit3">{{ titre }} </h5></div>
+                <div><h5 style="font-size:1rem;"> <span class="promo" style="color:#222222;">{{ prix }}</span> <span>{{ prixPromo }}</span></h5></div>
+            
+
+            {% endif %}
+          {% endfor %}
+              </section>
+
+              <section class="section-2" >
+                <div><h5>S M L XL</h5></div>
+                <div class="div-button">
+      
+        {% if section.settings.V3color_button1.alpha > 0 %}
+            <a href="#" class="link-block" id="promoTroisBoxFirstLinkBlockProduit3">
+                <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.V3color_button1 }};" width="12" height="12" class="cercle" >
+            </a>
+        {% endif %}
+         {% if section.settings.V3color_button2.alpha > 0 %}
+            <a href="#" class="link-block" id="promoTroisBoxSecondLinkBlockProduit3">
+                <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.V3color_button2 }};" width="12" height="12" class="cercle" >
+            </a>
+        {% endif %}
+{% if section.settings.V3color_button3.alpha > 0 %}
+            <a href="#" class="link-block" id="promoTroisBoxThirdLinkBlockProduit3">
+                <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.V3color_button3 }};" width="12" height="12" class="cercle" >
+            </a>
+        {% endif %}
+
+              
+                  
+            
+
+                </div>
+
+              </section>
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% schema %}
+{
+  "name": "trois-box promo",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+      {
+      "type":"text",
+      "id": "promoText",
+     "label": "Sélectionner un text pour la promo "
+
+    },
+       {
+      "type": "product",
+      "id": "selected_product",
+      "label": "Produit sélectionné",
+      "info": "Choisissez un produit à afficher dans cette section"
+    },
+        {
+      "type": "image_picker",
+      "id": "forme",
+      "label": "Sélectionner une forme "
+    },
+
+            {
+      "type": "image_picker",
+      "id": "wishlist-heart-void",
+      "label": "Sélectionner une icon wishlist "
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text"
+      },
+       {
+      "type": "url",
+      "id": "button_link2",
+      "label": "Button Link 2"
+    },
+      {
+        "type": "text",
+        "id": "button_text2",
+        "label": "Button Text 2"
+      },
+     {
+      "type": "color",
+      "id": "color_button",
+      "label": "Couleur du bouton"
+    },
+     {
+      "type": "color",
+      "id": "color_button2",
+      "label": "Couleur du bouton 2"
+    },
+      {
+      "type": "color",
+      "id": "color_button3",
+      "label": "Couleur du bouton 3"
+    },
+      {
+      "type": "color",
+      "id": "V2color_button1",
+      "label": "Couleur du bouton produit 2"
+    },
+       {
+      "type": "color",
+      "id": "V2color_button2",
+      "label": "Couleur du bouton 2 produit 2"
+    },
+       {
+      "type": "color",
+      "id": "V2color_button3",
+      "label": "Couleur du bouton  3 produit 2"
+    },
+        {
+      "type": "color",
+      "id": "V3color_button1",
+      "label": "Couleur du bouton produit 3"
+    },
+       {
+      "type": "color",
+      "id": "V3color_button2",
+      "label": "Couleur du bouton 2 produit 3"
+    },
+       {
+      "type": "color",
+      "id": "V3color_button3",
+      "label": "Couleur du bouton  3 produit 3"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "produit_1",
+      "name": "[1] produit 1",
+      "settings": [
+   {
+      "type": "product",
+      "id": "selected_product",
+      "label": "Produit sélectionné",
+      "info": "Choisissez un produit à afficher dans cette section"
+    },
+            {
+      "type": "image_picker",
+      "id": "imageProduit",
+      "label": "Sélectionner une image"
+    },
+        {
+        "type": "text",
+        "id": "prix",
+        "label": "prix produit"
+      },
+                {
+        "type": "text",
+        "id": "prixPromo",
+        "label": "prix produit"
+      },
+                {
+        "type": "text",
+        "id": "titre",
+        "label": "Text produit"
+      }
+      ]
+    },
+
+     {
+      "type": "produit_2",
+      "name": "[1] produit 2",
+      "settings": [
+   {
+      "type": "product",
+      "id": "selected_product",
+      "label": "Produit sélectionné",
+      "info": "Choisissez un produit à afficher dans cette section"
+    },
+            {
+      "type": "image_picker",
+      "id": "imageProduit",
+      "label": "Sélectionner une image"
+    }
+        ,
+        {
+        "type": "text",
+        "id": "prix",
+        "label": "prix produit"
+      },
+          {
+        "type": "text",
+        "id": "prixPromo",
+        "label": "prix produit"
+      },
+                {
+        "type": "text",
+        "id": "titre",
+        "label": "Text produit"
+      }
+        
+      ]
+    },
+    {
+      "type": "produit_3",
+      "name": "[1] produit 3",
+      "settings": [
+   {
+      "type": "product",
+      "id": "selected_product",
+      "label": "Produit sélectionné",
+      "info": "Choisissez un produit à afficher dans cette section"
+    },
+            {
+      "type": "image_picker",
+      "id": "imageProduit",
+      "label": "Sélectionner une image"
+    },
+        
+        {
+        "type": "text",
+        "id": "prix",
+        "label": "prix produit"
+      },
+          {
+        "type": "text",
+        "id": "prixPromo",
+        "label": "prix produit"
+      },
+                {
+        "type": "text",
+        "id": "titre",
+        "label": "Text produit"
+      }
+        
+      ]
+    },
+        {
+      "type": "V2produit_1",
+      "name": "[2] produit 1",
+      "settings": [
+   {
+      "type": "product",
+      "id": "selected_product",
+      "label": "Produit sélectionné",
+      "info": "Choisissez un produit à afficher dans cette section"
+    },
+            {
+      "type": "image_picker",
+      "id": "imageProduit",
+      "label": "Sélectionner une image"
+    },
+        {
+        "type": "text",
+        "id": "prix",
+        "label": "prix produit"
+      },
+          {
+        "type": "text",
+        "id": "prixPromo",
+        "label": "prix produit"
+      },
+                {
+        "type": "text",
+        "id": "titre",
+        "label": "Text produit"
+      }
+      ]
+    },
+    {
+      "type": "V2produit_2",
+      "name": "[2] produit 2",
+      "settings": [
+   {
+      "type": "product",
+      "id": "selected_product",
+      "label": "Produit sélectionné",
+      "info": "Choisissez un produit à afficher dans cette section"
+    },
+            {
+      "type": "image_picker",
+      "id": "imageProduit",
+      "label": "Sélectionner une image"
+    },
+         {
+        "type": "text",
+        "id": "prix",
+        "label": "prix produit"
+      },
+          {
+        "type": "text",
+        "id": "prixPromo",
+        "label": "prix produit"
+      },
+                {
+        "type": "text",
+        "id": "titre",
+        "label": "Text produit"
+      }
+      ]
+    },   
+    {
+      "type": "V2produit_3",
+      "name": "[2] produit 3",
+      "settings": [
+   {
+      "type": "product",
+      "id": "selected_product",
+      "label": "Produit sélectionné",
+      "info": "Choisissez un produit à afficher dans cette section"
+    },
+            {
+      "type": "image_picker",
+      "id": "imageProduit",
+      "label": "Sélectionner une image"
+    }, {
+        "type": "text",
+        "id": "prix",
+        "label": "prix produit"
+      },
+          {
+        "type": "text",
+        "id": "prixPromo",
+        "label": "prix produit"
+      },
+                {
+        "type": "text",
+        "id": "titre",
+        "label": "Text produit"
+      }
+      ]
+    },
+     {
+      "type": "V3produit_1",
+      "name": "[3] produit 1",
+      "settings": [
+   {
+      "type": "product",
+      "id": "selected_product",
+      "label": "Produit sélectionné",
+      "info": "Choisissez un produit à afficher dans cette section"
+    },
+            {
+      "type": "image_picker",
+      "id": "imageProduit",
+      "label": "Sélectionner une image"
+    },
+        
+        {
+        "type": "text",
+        "id": "prix",
+        "label": "prix produit"
+      },
+          {
+        "type": "text",
+        "id": "prixPromo",
+        "label": "prix produit"
+      },
+                {
+        "type": "text",
+        "id": "titre",
+        "label": "Text produit"
+      }
+      ]
+    },
+    {
+      "type": "V3produit_2",
+      "name": "[3] produit 2",
+      "settings": [
+   {
+      "type": "product",
+      "id": "selected_product",
+      "label": "Produit sélectionné",
+      "info": "Choisissez un produit à afficher dans cette section"
+    },
+            {
+      "type": "image_picker",
+      "id": "imageProduit",
+      "label": "Sélectionner une image"
+    }
+        ,
+         {
+        "type": "text",
+        "id": "prix",
+        "label": "prix produit"
+      },
+          {
+        "type": "text",
+        "id": "prixPromo",
+        "label": "prix produit"
+      },
+                {
+        "type": "text",
+        "id": "titre",
+        "label": "Text produit"
+      }
+      ]
+    },   
+    {
+      "type": "V3produit_3",
+      "name": "[3] produit 3",
+      "settings": [
+   {
+      "type": "product",
+      "id": "selected_product",
+      "label": "Produit sélectionné",
+      "info": "Choisissez un produit à afficher dans cette section"
+    },
+            {
+      "type": "image_picker",
+      "id": "imageProduit",
+      "label": "Sélectionner une image"
+    }
+        ,
+ {
+        "type": "text",
+        "id": "prix",
+        "label": "prix produit"
+      },
+          {
+        "type": "text",
+        "id": "prixPromo",
+        "label": "prix produit"
+      },
+                {
+        "type": "text",
+        "id": "titre",
+        "label": "Text produit"
+      }
+      ]
+    }
+
+
+
+  ],
+
+  "presets": [
+    {
+      "name": "trois-box promo"
+    
+    
+    }
+  ]
+}
+{% endschema %}
+
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+
+    
+
+    var promoTroisBoxfirstLinkBlockProduit1 = document.getElementById('promoTroisBoxfirstLinkBlockProduit1');
+    var promoTroisBoxSecondLinkBlockProduit1 = document.getElementById('promoTroisBoxSecondLinkBlockProduit1');
+    var promoTroisBoxThirdLinkBlockProduit1 = document.getElementById('promoTroisBoxThirdLinkBlockProduit1');
+    var promoTroisBoxFirstLinkBlockProduit2 = document.getElementById('promoTroisBoxFirstLinkBlockProduit2');
+    var promoTroisBoxSecondLinkBlockProduit2 = document.getElementById('promoTroisBoxSecondLinkBlockProduit2');
+    var promoTroisBoxThirdLinkBlockProduit2 = document.getElementById('promoTroisBoxThirdLinkBlockProduit2');
+    var promoTroisBoxFirstLinkBlockProduit3 = document.getElementById('promoTroisBoxFirstLinkBlockProduit3');
+    var promoTroisBoxSecondLinkBlockProduit3 = document.getElementById('promoTroisBoxSecondLinkBlockProduit3');
+    var promoTroisBoxThirdLinkBlockProduit3 = document.getElementById('promoTroisBoxThirdLinkBlockProduit3');
+    var promoTroisBoxLinkProduitBox1 = document.getElementById('promoTroisBoxLinkProduitBox1');
+    var promoTroisBoxLinkProduitBox2 = document.getElementById('promoTroisBoxLinkProduitBox2');
+     var promoTroisBoxLinkProduitBox3 = document.getElementById('promoTroisBoxLinkProduitBox3');
+    var promoTroisBoxImageProduitBox1 = document.getElementById('promoTroisBoxImageProduitBox1');
+    var promoTroisBoxImageProduitBox2 = document.getElementById('promoTroisBoxImageProduitBox2');
+     var promoTroisBoxImageProduitBox3 = document.getElementById('promoTroisBoxImageProduitBox3');
+  
+
+     promoTroisBoxfirstLinkBlockProduit1.addEventListener('click', function() {
+      event.preventDefault();
+      {% for block in section.blocks %}
+            {% if block.type == "produit_1" %}
+              {% assign imageProduit = block.settings.imageProduit %}
+              {% assign urlProduit = block.settings.selected_product.url %}
+              document.getElementById('troisBoxPromoTitreProduit1').innerHTML =  "{{ block.settings.titre  }}"
+              promoTroisBoxImageProduitBox1.src = "{{ imageProduit | img_url: 'master' }}";
+              promoTroisBoxLinkProduitBox1.href = "{{ urlProduit }}" ;
+                document.querySelector(".threeBoxWishP1B1").style.display = '';
+          document.querySelector(".threeBoxWishP1B2").style.display = 'none';
+           document.querySelector(".threeBoxWishP1B3").style.display = 'none';
+            {% endif %}
+          {% endfor %}
+
+    });
+
+    promoTroisBoxSecondLinkBlockProduit1.addEventListener('click', function(event) {
+      event.preventDefault();
+      {% for block in section.blocks %}
+      {% if block.type == "produit_2" %}
+        {% assign imageProduit = block.settings.imageProduit %}
+        {% assign urlProduit = block.settings.selected_product.url %}
+              document.getElementById('troisBoxPromoTitreProduit1').innerHTML =  "{{ block.settings.titre  }}"
+
+        promoTroisBoxImageProduitBox1.src = "{{ imageProduit | img_url: 'master' }}";
+        promoTroisBoxLinkProduitBox1.href = "{{ urlProduit }}" ;
+       document.querySelector(".threeBoxWishP1B1").style.display = 'none';
+          document.querySelector(".threeBoxWishP1B2").style.display = '';
+           document.querySelector(".threeBoxWishP1B3").style.display = 'none';
+
+      {% endif %}
+    {% endfor %}
+
+    });
+
+ promoTroisBoxThirdLinkBlockProduit1.addEventListener('click', function() {
+      event.preventDefault();
+      {% for block in section.blocks %}
+            {% if block.type == "produit_3" %}
+              {% assign imageProduit = block.settings.imageProduit %}
+              {% assign urlProduit = block.settings.selected_product.url %}
+              document.getElementById('troisBoxPromoTitreProduit1').innerHTML =  "{{ block.settings.titre  }}"
+
+              promoTroisBoxImageProduitBox1.src = "{{ imageProduit | img_url: 'master' }}";
+              promoTroisBoxLinkProduitBox1.href = "{{ urlProduit }}" ;
+      document.querySelector(".threeBoxWishP1B1").style.display = 'none';
+          document.querySelector(".threeBoxWishP1B2").style.display = 'none';
+           document.querySelector(".threeBoxWishP1B3").style.display = '';
+
+            {% endif %}
+          {% endfor %}
+
+      
+    });
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    });
+
+
+  </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+     promoTroisBoxFirstLinkBlockProduit2.addEventListener('click', function() {
+      event.preventDefault();
+      {% for block in section.blocks %}
+            {% if block.type == "V2produit_1" %}
+              {% assign imageProduit = block.settings.imageProduit %}
+              {% assign urlProduit = block.settings.selected_product.url %}
+              document.getElementById('troisBoxPromoTitreProduit2').innerHTML =  "{{ block.settings.titre  }}"
+
+              promoTroisBoxImageProduitBox2.src = "{{ imageProduit | img_url: 'master' }}";
+              promoTroisBoxLinkProduitBox2.href = "{{ urlProduit }}" ;
+        document.querySelector(".threeBoxWishP2B1").style.display = '';
+          document.querySelector(".threeBoxWishP2B2").style.display = 'none';
+           document.querySelector(".threeBoxWishP2B3").style.display = 'none';
+            {% endif %}
+          {% endfor %}
+
+    });
+
+       promoTroisBoxSecondLinkBlockProduit2.addEventListener('click', function() {
+      event.preventDefault();
+      {% for block in section.blocks %}
+            {% if block.type == "V2produit_2" %}
+              {% assign imageProduit = block.settings.imageProduit %}
+              {% assign urlProduit = block.settings.selected_product.url %}
+              document.getElementById('troisBoxPromoTitreProduit2').innerHTML =  "{{ block.settings.titre  }}"
+
+              promoTroisBoxImageProduitBox2.src = "{{ imageProduit | img_url: 'master' }}";
+              promoTroisBoxLinkProduitBox2.href = "{{ urlProduit }}" ;
+     document.querySelector(".threeBoxWishP2B1").style.display = 'none';
+          document.querySelector(".threeBoxWishP2B2").style.display = '';
+           document.querySelector(".threeBoxWishP2B3").style.display = 'none';
+            {% endif %}
+          {% endfor %}
+
+    });
+
+
+    promoTroisBoxThirdLinkBlockProduit2.addEventListener('click', function() {
+      event.preventDefault();
+      {% for block in section.blocks %}
+            {% if block.type == "V2produit_3" %}
+              {% assign imageProduit = block.settings.imageProduit %}
+              {% assign urlProduit = block.settings.selected_product.url %}
+              document.getElementById('troisBoxPromoTitreProduit2').innerHTML =  "{{ block.settings.titre  }}"
+
+              promoTroisBoxImageProduitBox2.src = "{{ imageProduit | img_url: 'master' }}";
+              promoTroisBoxLinkProduitBox2.href = "{{ urlProduit }}" ;
+           document.querySelector(".threeBoxWishP2B1").style.display = 'none';
+          document.querySelector(".threeBoxWishP2B2").style.display = 'none';
+           document.querySelector(".threeBoxWishP2B3").style.display = '';
+            {% endif %}
+          {% endfor %}
+
+    });
+
+});
+</script>
+
+  
+  <script>
+
+  document.addEventListener('DOMContentLoaded', function() {
+
+      promoTroisBoxFirstLinkBlockProduit3.addEventListener('click', function() {
+      event.preventDefault();
+      {% for block in section.blocks %}
+            {% if block.type == "V3produit_1" %}
+              {% assign imageProduit = block.settings.imageProduit %}
+              {% assign urlProduit = block.settings.selected_product.url %}
+              document.getElementById('troisBoxPromoTitreProduit3').innerHTML =  "{{ block.settings.titre  }}"
+
+              promoTroisBoxImageProduitBox3.src = "{{ imageProduit | img_url: 'master' }}";
+              promoTroisBoxLinkProduitBox3.href = "{{ urlProduit }}" ;
+             document.querySelector(".threeBoxWishP3B1").style.display = '';
+          document.querySelector(".threeBoxWishP3B2").style.display = 'none';
+           document.querySelector(".threeBoxWishP3B3").style.display = 'none';
+            {% endif %}
+          {% endfor %}
+
+    });
+
+       promoTroisBoxSecondLinkBlockProduit3.addEventListener('click', function() {
+      event.preventDefault();
+      {% for block in section.blocks %}
+            {% if block.type == "V3produit_2" %}
+              {% assign imageProduit = block.settings.imageProduit %}
+              {% assign urlProduit = block.settings.selected_product.url %}
+              document.getElementById('troisBoxPromoTitreProduit3').innerHTML =  "{{ block.settings.titre  }}"
+
+              promoTroisBoxImageProduitBox3.src = "{{ imageProduit | img_url: 'master' }}";
+              promoTroisBoxLinkProduitBox3.href = "{{ urlProduit }}" ;
+              document.querySelector(".threeBoxWishP3B1").style.display = 'none';
+          document.querySelector(".threeBoxWishP3B2").style.display = '';
+           document.querySelector(".threeBoxWishP3B3").style.display = 'none';
+            {% endif %}
+          {% endfor %}
+
+    });
+
+
+    promoTroisBoxThirdLinkBlockProduit3.addEventListener('click', function() {
+      event.preventDefault();
+      {% for block in section.blocks %}
+            {% if block.type == "V3produit_3" %}
+              {% assign imageProduit = block.settings.imageProduit %}
+              {% assign urlProduit = block.settings.selected_product.url %}
+              document.getElementById('troisBoxPromoTitreProduit3').innerHTML =  "{{ block.settings.titre  }}"
+
+              promoTroisBoxImageProduitBox3.src = "{{ imageProduit | img_url: 'master' }}";
+              promoTroisBoxLinkProduitBox3.href = "{{ urlProduit }}" ;
+           document.querySelector(".threeBoxWishP3B1").style.display = 'none';
+          document.querySelector(".threeBoxWishP3B2").style.display = 'none';
+           document.querySelector(".threeBoxWishP3B3").style.display = '';
+            {% endif %}
+          {% endfor %}
+
+    
+    });
+    });
+
+    
+  </script>
+
+
+{% javascript %}
+
+  <!-- Votre contenu de section précédent -->
+
+
+
+{% endjavascript %}
