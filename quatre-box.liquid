@@ -4,11 +4,12 @@
       display: flex;
       width: 100%;
       object-fit: contain;
+      color: #222222;
 
     }
      .section-custom-quatre-box h5 {
      color: #222222;
-
+font-size:1rem;
 
     }
       .section-custom-quatre-box span {
@@ -39,7 +40,7 @@
    
     .section-custom-quatre-box .button-wishlist {
       position: absolute;
-      top: 15px;
+        top: 21px;
       right: 15px;
       border:none;
       background-color: transparent;
@@ -47,10 +48,18 @@
 
     }
 
+       .section-custom-quatre-box .anotation {
+      position: absolute;
+      top: 8px;
+      left: 24px;
+      width: 100px;
+      font-size: 1.5rem;
+        color: #222222;
+    }
 
 
     .section-custom-quatre-box .inner-flexbox-image {
-      height: 80vh;
+      height: 600px;
       object-fit:contain;
     }
 
@@ -64,7 +73,7 @@
 
     .section-custom-quatre-box .inner-flexbox-item {
       display: flex;
-      height: 76px;
+      height: 88px;
       flex-direction: row;
       align-items: center;
       justify-content: center;
@@ -93,6 +102,7 @@
       justify-content: space-between;
       display: flex;
       align-items: center; /* Align items vertically in the center */
+      margin-top: -20px;
 
     }
  .section-custom-quatre-box .div-button {
@@ -108,10 +118,9 @@
 
 
     }
-  
+ 
 
-
-    @media screen and (max-width: 650px) {
+    @media screen and (max-width: 750px) {
       .section-custom-quatre-box .main-flexbox {
         display: flex;
         flex-direction: column;
@@ -133,7 +142,24 @@
 
       }
 
+      
+
     }
+
+        @media screen and (max-width: 550px) {
+
+              .section-custom-quatre-box .inner-flexbox-item {
+      height: 98px;
+ 
+
+    }
+           .section-custom-quatre-box .inner-flexbox-image {
+      height: 300px;
+    
+    }
+          
+        }
+
   </style>
 
 
@@ -148,6 +174,11 @@
 
         <div class="third-flexbox">
           <div class="inner-flexbox-image">
+             {% if section.settings.promoText %}
+          <div style="position: relative; ">
+            <p class="anotation">{{ section.settings.promoText}}</p>
+          </div>
+          {% endif %}
 
             <div style="position: relative; ">
 
@@ -155,16 +186,20 @@
  {% for block in section.blocks %}
   {% if block.type == 'produit_1' %}
     {% assign product = block.settings.selected_product %}
-  <button class="my-icon-filled button-wishlist swym-button swym-add-to-wishlist swym-iconbtnlink swym-heart swym-added btn1 swym-loaded quatreBoxWishP1B1" 
+
+  <button class="my-icon-filled button-wishlist swym-add-to-wishlist swym-iconbtnlink swym-heart swym-added swym-loaded quatreBoxWishP1B1" 
     data-with-epi="true" 
     data-swaction="addToWishlist"
     data-product-id="{{ product.id }}" 
     data-variant-id="{{ product.variants[0].id }}"
     data-product-url="{{ shop.url }}{{ product.url }}"
    >
-        <img src="{{ section.settings.wishlist-heart-void | img_url: 'master' }}" alt="Image sélectionnée" style="height:25px;width:25px;background-color: transparent;" class="box4Img1P1"/>
+        <img src="{{ section.settings.wishlist-heart-void | img_url: 'master' }}" alt="Image sélectionnée" style="height:25px;width:25px;background-color: transparent;"/>
 </button>
 
+
+   
+    
        
   {% endif %}
 
@@ -189,7 +224,7 @@
     data-variant-id="{{ product.variants[0].id }}"
     data-product-url="{{ shop.url }}{{ product.url }}"
    >
-        <img src="{{ section.settings.wishlist-heart-void | img_url: 'master' }}" alt="Image sélectionnée" style="height:25px;width:25px;background-color: transparent;" class="box4Img3"/>
+        <img src="{{ section.settings.wishlist-heart-void | img_url: 'master' }}" alt="Image sélectionnée" style="height:25px;width:25px;background-color: transparent;"/>
 </button>
   {% endif %}
 {% endfor %}
@@ -214,8 +249,18 @@
             <div class="div-element">
 
               <section class="section-1">
-                <div><h5 style="font-size:1rem;">Robe en Satin Essential </h5></div>
-                <div><h5 style="font-size:1rem;"> <span class="promo" style="color:#222222;">65€</span> <span> 45.5€ </span></h5></div>
+       {% for block in section.blocks %}
+                {% if block.type == "produit_1" %}
+                {% assign titre = block.settings.titre %}
+               {% assign prix = block.settings.prix %}
+               {% assign prixPromo = block.settings.prixPromo %}
+
+               <div><h5 id="quatreBoxTitre1">{{ titre }} </h5></div>
+                <div><h5 style=" white-space: nowrap;" > <span class="promo" style="color:#222222;">{{ prix }}</span> <span>{{ prixPromo }}</span></h5></div>
+            
+
+            {% endif %}
+          {% endfor %}
               </section>
 
               <section class="section-2">
@@ -224,17 +269,17 @@
                   
                        
               {% if section.settings.color_button.alpha > 0 %}
-            <a href="#" class="link-block" id="4box-first-Link-produit-1">
+            <a href="#" class="link-block" id="Section4box-first-Link-produit-1">
                 <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.color_button }};" width="12" height="12" class="cercle" >
             </a>
         {% endif %}
          {% if section.settings.color_button2.alpha > 0 %}
-            <a href="#" class="link-block" id="4box-second-Link-produit-1">
+            <a href="#" class="link-block" id="Section4box-second-Link-produit-1">
                 <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.color_button2 }};" width="12" height="12" class="cercle" >
             </a>
         {% endif %}
 {% if section.settings.color_button3.alpha > 0 %}
-            <a href="#" class="link-block" id="4box-third-Link-produit-1">
+            <a href="#" class="link-block" id="Section4box-third-Link-produit-1">
                 <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.color_button3 }};" width="12" height="12" class="cercle" >
             </a>
         {% endif %}
@@ -250,43 +295,51 @@
 
         <div class="third-flexbox">
           <div class="inner-flexbox-image">
-            <div style="position: relative; ">
+            
+        {% if section.settings.promoText %}
+          <div style="position: relative;">
+            <p class="anotation">{{ section.settings.promoText}}</p>
+          </div>
+          {% endif %}
+          
+            
+       <div style="position: relative; ">
               
  {% for block in section.blocks %}
      {% if block.type == 'V2produit_1' %}
     {% assign product = block.settings.selected_product %}
-  <button class="button-wishlist my-icon-filled swym-button swym-add-to-wishlist swym-iconbtnlink swym-heart swym-added btn2 swym-loaded quatreBoxWishP2B1"
+  <button class="button-wishlist my-icon-filled swym-add-to-wishlist swym-iconbtnlink swym-heart swym-added btn2 swym-loaded quatreBoxWishP2B1"
     data-with-epi="true" 
     data-swaction="addToWishlist"
     data-product-id="{{ product.id }}" 
     data-variant-id="{{ product.variants[0].id }}"
     data-product-url="{{ shop.url }}{{ product.url }}"
    >
-        <img src="{{ section.settings.wishlist-heart-void | img_url: 'master' }}" alt="Image sélectionnée" style="height:25px;width:25px;background-color: transparent;" class="box4Img1P2"/>
+        <img src="{{ section.settings.wishlist-heart-void | img_url: 'master' }}" alt="Image sélectionnée" style="height:25px;width:25px;background-color: transparent;"/>
 </button>
   {% endif %}
       {% if block.type == 'V2produit_2' %}
     {% assign product = block.settings.selected_product %}
-  <button class="button-wishlist my-icon-filled swym-button swym-add-to-wishlist swym-iconbtnlink swym-heart swym-added btn2 swym-loaded quatreBoxWishP2B2" style="display:none;"
+  <button class="button-wishlist my-icon-filled swym-add-to-wishlist swym-iconbtnlink swym-heart swym-added btn2 swym-loaded quatreBoxWishP2B2" style="display:none;"
     data-with-epi="true" 
     data-swaction="addToWishlist"
     data-product-id="{{ product.id }}" 
     data-variant-id="{{ product.variants[0].id }}"
     data-product-url="{{ shop.url }}{{ product.url }}"
    >
-        <img src="{{ section.settings.wishlist-heart-void | img_url: 'master' }}" alt="Image sélectionnée" style="height:25px;width:25px;background-color: transparent;" class="box4Img2P2"/>
+        <img src="{{ section.settings.wishlist-heart-void | img_url: 'master' }}" alt="Image sélectionnée" style="height:25px;width:25px;background-color: transparent;"/>
 </button>
   {% endif %}
       {% if block.type == 'V2produit_3' %}
     {% assign product = block.settings.selected_product %}
-  <button class="button-wishlist my-icon-filled swym-button swym-add-to-wishlist swym-iconbtnlink swym-heart swym-added btn2 swym-loaded quatreBoxWishP2B3" style="display:none;"
+  <button class="button-wishlist my-icon-filled swym-add-to-wishlist swym-iconbtnlink swym-heart swym-added btn2 swym-loaded quatreBoxWishP2B3" style="display:none;"
     data-with-epi="true" 
     data-swaction="addToWishlist"
     data-product-id="{{ product.id }}" 
     data-variant-id="{{ product.variants[0].id }}"
     data-product-url="{{ shop.url }}{{ product.url }}"
    >
-        <img src="{{ section.settings.wishlist-heart-void | img_url: 'master' }}" alt="Image sélectionnée" style="height:25px;width:25px;background-color: transparent;" class="box4Img3P2"/>
+        <img src="{{ section.settings.wishlist-heart-void | img_url: 'master' }}" alt="Image sélectionnée" style="height:25px;width:25px;background-color: transparent;" />
 </button>
   {% endif %}
   
@@ -310,8 +363,18 @@
             <div class="div-element">
 
               <section class="section-1">
-                <div><h5  style="font-size:1rem;">Abaya Réversible Reverse</h5></div>
-                <div><h5 style="font-size:1rem;white-space: nowrap;"> <span class="promo" style="color:#222222;">139€</span> <span> 97.3€ </span></h5></div>
+       {% for block in section.blocks %}
+                {% if block.type == "V2produit_1" %}
+                {% assign titre = block.settings.titre %}
+               {% assign prix = block.settings.prix %}
+               {% assign prixPromo = block.settings.prixPromo %}
+
+               <div><h5 id="quatreBoxTitre2" >{{ titre }} </h5></div>
+                <div><h5 style=" white-space: nowrap;" > <span class="promo" style="color:#222222;">{{ prix }}</span> <span>{{ prixPromo }}</span></h5></div>
+            
+
+            {% endif %}
+          {% endfor %}
               </section>
 
               <section class="section-2">
@@ -319,17 +382,17 @@
                 <div class="div-button">
 
  {% if section.settings.V2color_button1.alpha > 0 %}
-            <a href="#" class="link-block" id="4box-first-Link-produit-2">
+            <a href="#" class="link-block" id="Section4box-first-Link-produit-2">
                 <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.V2color_button1 }};" width="12" height="12" class="cercle" >
             </a>
         {% endif %}
          {% if section.settings.V2color_button2.alpha > 0 %}
-            <a href="#" class="link-block" id="4box-second-Link-produit-2">
+            <a href="#" class="link-block" id="Section4box-second-Link-produit-2">
                 <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.V2color_button2 }};" width="12" height="12" class="cercle" >
             </a>
         {% endif %}
 {% if section.settings.V2color_button3.alpha > 0 %}
-            <a href="#" class="link-block" id="4box-third-Link-produit-2">
+            <a href="#" class="link-block" id="Section4box-third-Link-produit-2">
                 <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.V2color_button3 }};" width="12" height="12" class="cercle" >
             </a>
         {% endif %}
@@ -349,6 +412,11 @@
       <div class="sub-flexbox">
         <div class="third-flexbox">
           <div class="inner-flexbox-image">
+                    {% if section.settings.promoText %}
+          <div style="position: relative; ">
+            <p class="anotation">{{ section.settings.promoText}}</p>
+          </div>
+          {% endif %}
 
             <div style="position: relative; ">
               
@@ -357,14 +425,14 @@
  {% for block in section.blocks %}
   {% if block.type == 'V3produit_1' %}
     {% assign product = block.settings.selected_product %}
-  <button class="my-icon-filled button-wishlist swym-button swym-add-to-wishlist swym-iconbtnlink swym-heart swym-added btn1 swym-loaded quatreBoxWishP3B1" 
+  <button class="my-icon-filled button-wishlist swym-add-to-wishlist swym-iconbtnlink swym-heart swym-added btn1 swym-loaded quatreBoxWishP3B1" 
     data-with-epi="true" 
     data-swaction="addToWishlist"
     data-product-id="{{ product.id }}" 
     data-variant-id="{{ product.variants[0].id }}"
     data-product-url="{{ shop.url }}{{ product.url }}"
    >
-        <img src="{{ section.settings.wishlist-heart-void | img_url: 'master' }}" alt="Image sélectionnée" style="height:25px;width:25px;background-color: transparent;" class="box4Img1P3"/>
+        <img src="{{ section.settings.wishlist-heart-void | img_url: 'master' }}" alt="Image sélectionnée" style="height:25px;width:25px;background-color: transparent;"/>
 </button>
 
        
@@ -379,7 +447,7 @@
     data-variant-id="{{ product.variants[0].id }}"
     data-product-url="{{ shop.url }}{{ product.url }}"
    >
-        <img src="{{ section.settings.wishlist-heart-void | img_url: 'master' }}" alt="Image sélectionnée" style="height:25px;width:25px;background-color: transparent;" class="box4Img2P3"/>
+        <img src="{{ section.settings.wishlist-heart-void | img_url: 'master' }}" alt="Image sélectionnée" style="height:25px;width:25px;background-color: transparent;"/>
 </button>
   {% endif %}
     {% if block.type == 'V3produit_3' %}
@@ -391,11 +459,10 @@
     data-variant-id="{{ product.variants[0].id }}"
     data-product-url="{{ shop.url }}{{ product.url }}"
    >
-        <img src="{{ section.settings.wishlist-heart-void | img_url: 'master' }}" alt="Image sélectionnée" style="height:25px;width:25px;background-color: transparent;" class="box4Img3P3"/>
+        <img src="{{ section.settings.wishlist-heart-void | img_url: 'master' }}" alt="Image sélectionnée" style="height:25px;width:25px;background-color: transparent;"/>
 </button>
   {% endif %}
 {% endfor %}
-
               
             </div>
 
@@ -414,8 +481,18 @@
             <div class="div-element">
 
               <section class="section-1">
-                <div><h5  style="font-size:1rem;">Ensemble Maxi Chemise et ceinture Tenacity</h5></div>
-                <div><h5 style="font-size:1rem;white-space: nowrap;"> <span class="promo" style="color:#222222;">139€</span> <span> 97.3€ </span></h5></div>
+                {% for block in section.blocks %}
+                {% if block.type == "V3produit_1" %}
+                {% assign titre = block.settings.titre %}
+               {% assign prix = block.settings.prix %}
+               {% assign prixPromo = block.settings.prixPromo %}
+
+               <div><h5 id="quatreBoxTitre3" >{{ titre }} </h5></div>
+                <div><h5 style=" white-space: nowrap;"> <span class="promo" style="color:#222222;">{{ prix }}</span> <span>{{ prixPromo }}</span></h5></div>
+            
+
+            {% endif %}
+          {% endfor %}
               </section>
 
               <section class="section-2">
@@ -423,17 +500,17 @@
                 <div class="div-button">
 
  {% if section.settings.V3color_button1.alpha > 0 %}
-            <a href="#" class="link-block" id="4box-first-Link-produit-3">
+            <a href="#" class="link-block" id="Section4box-first-Link-produit-3">
                 <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.V3color_button1 }};" width="12" height="12" class="cercle" >
             </a>
         {% endif %}
          {% if section.settings.V3color_button2.alpha > 0 %}
-            <a href="#" class="link-block" id="4box-second-Link-produit-3">
+            <a href="#" class="link-block" id="Section4box-second-Link-produit-3">
                 <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.V3color_button2 }};" width="12" height="12" class="cercle" >
             </a>
         {% endif %}
 {% if section.settings.V3color_button3.alpha > 0 %}
-            <a href="#" class="link-block" id="4box-third-Link-produit-3">
+            <a href="#" class="link-block" id="Section4box-third-Link-produit-3">
                 <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.V3color_button3 }};" width="12" height="12" class="cercle" >
             </a>
         {% endif %}
@@ -452,6 +529,11 @@
 
         <div class="third-flexbox">
           <div class="inner-flexbox-image">
+                    {% if section.settings.promoText %}
+          <div style="position: relative; ">
+            <p class="anotation">{{ section.settings.promoText}}</p>
+          </div>
+          {% endif %}
 
             <div style="position: relative; ">
 
@@ -459,14 +541,14 @@
  {% for block in section.blocks %}
   {% if block.type == 'V4produit_1' %}
     {% assign product = block.settings.selected_product %}
-  <button class="my-icon-filled button-wishlist swym-button swym-add-to-wishlist swym-iconbtnlink swym-heart swym-added btn1 swym-loaded quatreBoxWishP4B1" 
+  <button class="my-icon-filled button-wishlist swym-add-to-wishlist swym-iconbtnlink swym-heart swym-added btn1 swym-loaded quatreBoxWishP4B1" 
     data-with-epi="true" 
     data-swaction="addToWishlist"
     data-product-id="{{ product.id }}" 
     data-variant-id="{{ product.variants[0].id }}"
     data-product-url="{{ shop.url }}{{ product.url }}"
    >
-        <img src="{{ section.settings.wishlist-heart-void | img_url: 'master' }}" alt="Image sélectionnée" style="height:25px;width:25px;background-color: transparent;" class="box4Img1P4"/>
+        <img src="{{ section.settings.wishlist-heart-void | img_url: 'master' }}" alt="Image sélectionnée" style="height:25px;width:25px;background-color: transparent;" />
 </button>
 
        
@@ -481,7 +563,7 @@
     data-variant-id="{{ product.variants[0].id }}"
     data-product-url="{{ shop.url }}{{ product.url }}"
    >
-        <img src="{{ section.settings.wishlist-heart-void | img_url: 'master' }}" alt="Image sélectionnée" style="height:25px;width:25px;background-color: transparent;" class="box4Img2P4"/>
+        <img src="{{ section.settings.wishlist-heart-void | img_url: 'master' }}" alt="Image sélectionnée" style="height:25px;width:25px;background-color: transparent;"/>
 </button>
   {% endif %}
     {% if block.type == 'V4produit_3' %}
@@ -493,10 +575,11 @@
     data-variant-id="{{ product.variants[0].id }}"
     data-product-url="{{ shop.url }}{{ product.url }}"
    >
-        <img src="{{ section.settings.wishlist-heart-void | img_url: 'master' }}" alt="Image sélectionnée" style="height:25px;width:25px;background-color: transparent;" class="box4Img3P4"/>
+        <img src="{{ section.settings.wishlist-heart-void | img_url: 'master' }}" alt="Image sélectionnée" style="height:25px;width:25px;background-color: transparent;" />
 </button>
   {% endif %}
 {% endfor %}
+
 
 
 
@@ -530,27 +613,38 @@
             <div class="div-element">
 
               <section class="section-1">
-                <div><h5  style="font-size:1rem;">Ensemble Robe et pagne Essential </h5></div>
-                <div><h5 style="font-size:1rem;white-space: nowrap;"> <span class="promo" style="color:#222222;">85€</span> <span> 59.5€</span></h5></div>
+                    {% for block in section.blocks %}
+                {% if block.type == "V4produit_1" %}
+                {% assign titre = block.settings.titre %}
+               {% assign prix = block.settings.prix %}
+               {% assign prixPromo = block.settings.prixPromo %}
+
+               <div><h5 id="quatreBoxTitre4">{{ titre }} </h5></div>
+                <div><h5 style=" white-space: nowrap;"> <span class="promo" style="color:#222222;">{{ prix }}</span> <span>{{ prixPromo }}</span></h5></div>
+            
+
+            {% endif %}
+          {% endfor %}
               </section>
 
+            
               <section class="section-2">
                 <div><h5 style="font-size:1rem;">S M L XL</h5></div>
                 <div class="div-button">
 
 
  {% if section.settings.V4color_button1.alpha > 0 %}
-            <a href="#" class="link-block" id="4box-first-Link-produit-4">
+            <a href="#" class="link-block" id="Section4box-first-Link-produit-4">
                 <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.V4color_button1 }};" width="12" height="12" class="cercle" >
             </a>
         {% endif %}
          {% if section.settings.V4color_button2.alpha > 0 %}
-            <a href="#" class="link-block" id="4box-second-Link-produit-4">
+            <a href="#" class="link-block" id="Section4box-second-Link-produit-4">
                 <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.V4color_button2 }};" width="12" height="12" class="cercle" >
             </a>
         {% endif %}
 {% if section.settings.V4color_button3.alpha > 0 %}
-            <a href="#" class="link-block" id="4box-third-Link-produit-4">
+            <a href="#" class="link-block" id="Section4box-third-Link-produit-4">
                 <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.V4color_button3 }};" width="12" height="12" class="cercle" >
             </a>
         {% endif %}
@@ -605,6 +699,12 @@
     "groups": ["header", "footer"]
   },
   "settings": [
+    {
+      "type":"text",
+      "id": "promoText",
+     "label": "Sélectionner un text pour la promo "
+
+    },
         {
       "type": "image_picker",
       "id": "forme",
@@ -716,7 +816,23 @@
       "type": "image_picker",
       "id": "imageProduit",
       "label": "Sélectionner une image"
-    }
+    },
+                {
+        "type": "text",
+        "id": "prix",
+        "label": "prix produit"
+      },
+        
+       {
+        "type": "text",
+        "id": "prixPromo",
+        "label": "prix promo produit"
+      },
+                {
+        "type": "text",
+        "id": "titre",
+        "label": "Text produit"
+      }
       ]
     },
 
@@ -734,7 +850,22 @@
       "type": "image_picker",
       "id": "imageProduit",
       "label": "Sélectionner une image"
-    }
+    },                   {
+        "type": "text",
+        "id": "prix",
+        "label": "prix produit"
+      },
+        
+       {
+        "type": "text",
+        "id": "prixPromo",
+        "label": "prix promo produit"
+      },
+                {
+        "type": "text",
+        "id": "titre",
+        "label": "Text produit"
+      }
         
       ]
     },
@@ -753,7 +884,22 @@
       "id": "imageProduit",
       "label": "Sélectionner une image"
     }
+         ,                   {
+        "type": "text",
+        "id": "prix",
+        "label": "prix produit"
+      },
         
+       {
+        "type": "text",
+        "id": "prixPromo",
+        "label": "prix produit"
+      },
+                {
+        "type": "text",
+        "id": "titre",
+        "label": "Text produit"
+      }
       ]
     },
         {
@@ -770,7 +916,22 @@
       "type": "image_picker",
       "id": "imageProduit",
       "label": "Sélectionner une image"
-    }
+    } ,                   {
+        "type": "text",
+        "id": "prix",
+        "label": "prix produit"
+      },
+        
+       {
+        "type": "text",
+        "id": "prixPromo",
+        "label": "prix promo produit"
+      },
+                {
+        "type": "text",
+        "id": "titre",
+        "label": "Text produit"
+      }
       ]
     },
     {
@@ -787,7 +948,22 @@
       "type": "image_picker",
       "id": "imageProduit",
       "label": "Sélectionner une image"
-    }
+    } ,                   {
+        "type": "text",
+        "id": "prix",
+        "label": "prix produit"
+      },
+        
+       {
+        "type": "text",
+        "id": "prixPromo",
+        "label": "prix promo produit"
+      },
+                {
+        "type": "text",
+        "id": "titre",
+        "label": "Text produit"
+      }
       ]
     },   
     {
@@ -805,7 +981,22 @@
       "id": "imageProduit",
       "label": "Sélectionner une image"
     }
+         ,                   {
+        "type": "text",
+        "id": "prix",
+        "label": "prix produit"
+      },
         
+       {
+        "type": "text",
+        "id": "prixPromo",
+        "label": "prix promo produit"
+      },
+                {
+        "type": "text",
+        "id": "titre",
+        "label": "Text produit"
+      }
       ]
     }
     ,
@@ -823,7 +1014,22 @@
       "type": "image_picker",
       "id": "imageProduit",
       "label": "Sélectionner une image"
-    }
+    } ,                   {
+        "type": "text",
+        "id": "prix",
+        "label": "prix produit"
+      },
+        
+       {
+        "type": "text",
+        "id": "prixPromo",
+        "label": "prix promo produit"
+      },
+                {
+        "type": "text",
+        "id": "titre",
+        "label": "Text produit"
+      }
       ]
     },
     {
@@ -840,7 +1046,22 @@
       "type": "image_picker",
       "id": "imageProduit",
       "label": "Sélectionner une image"
-    }
+    } ,                   {
+        "type": "text",
+        "id": "prix",
+        "label": "prix produit"
+      },
+        
+       {
+        "type": "text",
+        "id": "prixPromo",
+        "label": "prix promo produit"
+      },
+                {
+        "type": "text",
+        "id": "titre",
+        "label": "Text produit"
+      }
       ]
     },   
     {
@@ -857,7 +1078,22 @@
       "type": "image_picker",
       "id": "imageProduit",
       "label": "Sélectionner une image"
-    }
+    } ,                   {
+        "type": "text",
+        "id": "prix",
+        "label": "prix produit"
+      },
+        
+       {
+        "type": "text",
+        "id": "prixPromo",
+        "label": "prix  promo produit"
+      },
+                {
+        "type": "text",
+        "id": "titre",
+        "label": "Text produit"
+      }
         
       ]
     }
@@ -876,7 +1112,22 @@
       "type": "image_picker",
       "id": "imageProduit",
       "label": "Sélectionner une image"
-    }
+    } ,                   {
+        "type": "text",
+        "id": "prix",
+        "label": "prix produit"
+      },
+        
+       {
+        "type": "text",
+        "id": "prixPromo",
+        "label": "prix promo produit"
+      },
+                {
+        "type": "text",
+        "id": "titre",
+        "label": "Text produit"
+      }
       ]
     },
     {
@@ -893,7 +1144,22 @@
       "type": "image_picker",
       "id": "imageProduit",
       "label": "Sélectionner une image"
-    }
+    } ,                   {
+        "type": "text",
+        "id": "prix",
+        "label": "prix produit"
+      },
+        
+       {
+        "type": "text",
+        "id": "prixPromo",
+        "label": "prix promo produit"
+      },
+                {
+        "type": "text",
+        "id": "titre",
+        "label": "Text produit"
+      }
       ]
     },   
     {
@@ -910,7 +1176,22 @@
       "type": "image_picker",
       "id": "imageProduit",
       "label": "Sélectionner une image"
-    }
+    } ,                   {
+        "type": "text",
+        "id": "prix",
+        "label": "prix produit"
+      },
+        
+       {
+        "type": "text",
+        "id": "prixPromo",
+        "label": "prix promo produit"
+      },
+                {
+        "type": "text",
+        "id": "titre",
+        "label": "Text produit"
+      }
         
       ]
     }
@@ -928,8 +1209,7 @@
 {% endschema %}
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-  
+  document.addEventListener('DOMContentLoaded', function() {  
 
     
     var quatreBoxWishP1B1 = document.querySelector('.quatreBoxWishP1B1');
@@ -984,13 +1264,15 @@
 
   
 
-    document.getElementById('4box-first-Link-produit-1').addEventListener('click', function() {
+    document.getElementById('Section4box-first-Link-produit-1').addEventListener('click', function() {
             event.preventDefault();
    {% for block in section.blocks %}
             {% if block.type == "produit_1" %}
               {% assign imageProduit = block.settings.imageProduit %}
               {% assign urlProduit = block.settings.selected_product.url %}
               {% assign product = block.settings.selected_product %}
+                         document.getElementById('quatreBoxTitre1').innerHTML =  "{{ block.settings.titre  }}"
+
 
          Box4LinkBox1.href = "{{ urlProduit }}";
 
@@ -1004,13 +1286,14 @@
           {% endfor %}
 
   });
-       document.getElementById('4box-second-Link-produit-1').addEventListener('click', function() {
+       document.getElementById('Section4box-second-Link-produit-1').addEventListener('click', function() {
             event.preventDefault();
  {% for block in section.blocks %}
             {% if block.type == "produit_2" %}
               {% assign imageProduit = block.settings.imageProduit %}
               {% assign urlProduit = block.settings.selected_product.url %}
               {% assign product = block.settings.selected_product %}
+  document.getElementById('quatreBoxTitre1').innerHTML   =  "{{ block.settings.titre  }}"
 
          Box4LinkBox1.href = "{{ urlProduit }}";
 
@@ -1018,21 +1301,21 @@
           quatreBoxWishP1B1.style.display = 'none';
           quatreBoxWishP1B2.style.display = '';
            quatreBoxWishP1B3.style.display = 'none';
-      
             {% endif %}
           {% endfor %}
 
   });
 
 
-         document.getElementById('4box-third-Link-produit-1').addEventListener('click', function() {
+         document.getElementById('Section4box-third-Link-produit-1').addEventListener('click', function() {
             event.preventDefault();
  {% for block in section.blocks %}
             {% if block.type == "produit_3" %}
               {% assign imageProduit = block.settings.imageProduit %}
               {% assign urlProduit = block.settings.selected_product.url %}
               {% assign product = block.settings.selected_product %}
-     
+                    document.getElementById('quatreBoxTitre1').innerHTML =  "{{ block.settings.titre  }}"
+
             Box4LinkBox1.href = "{{ urlProduit }}";
 
          Box4ImageProduitBox1.src = '{{imageProduit | img_url: 'master'}}';
@@ -1040,20 +1323,34 @@
           quatreBoxWishP1B1.style.display = 'none';
      quatreBoxWishP1B2.style.display = 'none';
            quatreBoxWishP1B3.style.display = '';
-    
+
 
             {% endif %}
           {% endfor %}
   });
 
 
-  document.getElementById('4box-first-Link-produit-2').addEventListener('click', function() {
+
+
+    
+});
+
+
+
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {  
+
+  
+  document.getElementById('Section4box-first-Link-produit-2').addEventListener('click', function() {
             event.preventDefault();
    {% for block in section.blocks %}
             {% if block.type == "V2produit_1" %}
               {% assign imageProduit = block.settings.imageProduit %}
               {% assign urlProduit = block.settings.selected_product.url %}
               {% assign product = block.settings.selected_product %}
+                    document.getElementById('quatreBoxTitre2').innerHTML =  "{{ block.settings.titre  }}"
 
          Box4LinkBox2.href = "{{ urlProduit }}";
 
@@ -1066,13 +1363,15 @@
           {% endfor %}
 
   });
-       document.getElementById('4box-second-Link-produit-2').addEventListener('click', function() {
+       document.getElementById('Section4box-second-Link-produit-2').addEventListener('click', function() {
             event.preventDefault();
  {% for block in section.blocks %}
             {% if block.type == "V2produit_2" %}
               {% assign imageProduit = block.settings.imageProduit %}
               {% assign urlProduit = block.settings.selected_product.url %}
               {% assign product = block.settings.selected_product %}
+              document.getElementById('quatreBoxTitre2').innerHTML =  "{{ block.settings.titre  }}"
+
 
          Box4LinkBox2.href = "{{ urlProduit }}";
 
@@ -1080,21 +1379,22 @@
           quatreBoxWishP2B1.style.display = 'none';
           quatreBoxWishP2B2.style.display = '';
            quatreBoxWishP2B3.style.display = 'none';
-      
+
             {% endif %}
           {% endfor %}
 
   });
 
 
-         document.getElementById('4box-third-Link-produit-2').addEventListener('click', function() {
+         document.getElementById('Section4box-third-Link-produit-2').addEventListener('click', function() {
             event.preventDefault();
  {% for block in section.blocks %}
             {% if block.type == "V2produit_3" %}
               {% assign imageProduit = block.settings.imageProduit %}
               {% assign urlProduit = block.settings.selected_product.url %}
               {% assign product = block.settings.selected_product %}
-     
+             document.getElementById('quatreBoxTitre2').innerHTML =  "{{ block.settings.titre  }}"
+
             Box4LinkBox2.href = "{{ urlProduit }}";
 
          Box4ImageProduitBox2.src = '{{imageProduit | img_url: 'master'}}';
@@ -1102,24 +1402,31 @@
           quatreBoxWishP2B1.style.display = 'none';
      quatreBoxWishP2B2.style.display = 'none';
            quatreBoxWishP2B3.style.display = '';
-    
+
 
             {% endif %}
           {% endfor %}
   });
 
 
+  });
 
-//3
 
+</script>
+
+  
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+  
     
-    document.getElementById('4box-first-Link-produit-3').addEventListener('click', function() {
+    document.getElementById('Section4box-first-Link-produit-3').addEventListener('click', function() {
             event.preventDefault();
    {% for block in section.blocks %}
             {% if block.type == "V3produit_1" %}
               {% assign imageProduit = block.settings.imageProduit %}
               {% assign urlProduit = block.settings.selected_product.url %}
               {% assign product = block.settings.selected_product %}
+                    document.getElementById('quatreBoxTitre3').innerHTML =  "{{ block.settings.titre  }}"
 
          Box4LinkBox3.href = "{{ urlProduit }}";
 
@@ -1133,13 +1440,14 @@
           {% endfor %}
 
   });
-       document.getElementById('4box-second-Link-produit-3').addEventListener('click', function() {
+       document.getElementById('Section4box-second-Link-produit-3').addEventListener('click', function() {
             event.preventDefault();
  {% for block in section.blocks %}
             {% if block.type == "V3produit_2" %}
               {% assign imageProduit = block.settings.imageProduit %}
               {% assign urlProduit = block.settings.selected_product.url %}
               {% assign product = block.settings.selected_product %}
+                    document.getElementById('quatreBoxTitre3').innerHTML =  "{{ block.settings.titre  }}"
 
          Box4LinkBox3.href = "{{ urlProduit }}";
 
@@ -1147,21 +1455,22 @@
           quatreBoxWishP3B1.style.display = 'none';
           quatreBoxWishP3B2.style.display = '';
            quatreBoxWishP3B3.style.display = 'none';
-      
+
             {% endif %}
           {% endfor %}
 
   });
 
 
-         document.getElementById('4box-third-Link-produit-3').addEventListener('click', function() {
+         document.getElementById('Section4box-third-Link-produit-3').addEventListener('click', function() {
             event.preventDefault();
  {% for block in section.blocks %}
             {% if block.type == "V3produit_3" %}
               {% assign imageProduit = block.settings.imageProduit %}
               {% assign urlProduit = block.settings.selected_product.url %}
               {% assign product = block.settings.selected_product %}
-     
+                         document.getElementById('quatreBoxTitre3').innerHTML =  "{{ block.settings.titre  }}"
+
             Box4LinkBox3.href = "{{ urlProduit }}";
 
          Box4ImageProduitBox3.src = '{{imageProduit | img_url: 'master'}}';
@@ -1174,56 +1483,65 @@
             {% endif %}
           {% endfor %}
   });
+});
+</script>
 
 
+<script>
 
-    document.getElementById('4box-first-Link-produit-4').addEventListener('click', function() {
+
+  document.addEventListener('DOMContentLoaded', function() {
+
+    document.getElementById('Section4box-first-Link-produit-4').addEventListener('click', function() {
             event.preventDefault();
    {% for block in section.blocks %}
             {% if block.type == "V4produit_1" %}
               {% assign imageProduit = block.settings.imageProduit %}
               {% assign urlProduit = block.settings.selected_product.url %}
               {% assign product = block.settings.selected_product %}
+                    document.getElementById('quatreBoxTitre4').innerHTML =  "{{ block.settings.titre  }}"
 
          Box4LinkBox4.href = "{{ urlProduit }}";
 
          Box4ImageProduitBox4.src = '{{imageProduit | img_url: 'master'}}';
           quatreBoxWishP4B1.style.display = '';
             quatreBoxWishP4B2.style.display = 'none';
-           quatreBoxWishP4B3.style.display = 'none';      
+           quatreBoxWishP4B3.style.display = 'none'; 
+
             {% endif %}
           {% endfor %}
 
   });
-       document.getElementById('4box-second-Link-produit-4').addEventListener('click', function() {
+       document.getElementById('Section4box-second-Link-produit-4').addEventListener('click', function() {
             event.preventDefault();
  {% for block in section.blocks %}
             {% if block.type == "V4produit_2" %}
               {% assign imageProduit = block.settings.imageProduit %}
               {% assign urlProduit = block.settings.selected_product.url %}
               {% assign product = block.settings.selected_product %}
-
+                    document.getElementById('quatreBoxTitre4').innerHTML =  "{{ block.settings.titre  }}"
          Box4LinkBox4.href = "{{ urlProduit }}";
 
          Box4ImageProduitBox4.src = '{{imageProduit | img_url: 'master'}}';
           quatreBoxWishP4B1.style.display = 'none';
           quatreBoxWishP4B2.style.display = '';
            quatreBoxWishP4B3.style.display = 'none';
-      
+
             {% endif %}
           {% endfor %}
 
   });
 
 
-         document.getElementById('4box-third-Link-produit-4').addEventListener('click', function() {
+         document.getElementById('Section4box-third-Link-produit-4').addEventListener('click', function() {
             event.preventDefault();
  {% for block in section.blocks %}
             {% if block.type == "V4produit_3" %}
               {% assign imageProduit = block.settings.imageProduit %}
               {% assign urlProduit = block.settings.selected_product.url %}
               {% assign product = block.settings.selected_product %}
-     
+                         document.getElementById('quatreBoxTitre4').innerHTML =  "{{ block.settings.titre  }}"
+
             Box4LinkBox4.href = "{{ urlProduit }}";
 
          Box4ImageProduitBox4.src = '{{imageProduit | img_url: 'master'}}';
@@ -1231,32 +1549,14 @@
           quatreBoxWishP4B1.style.display = 'none';
      quatreBoxWishP4B2.style.display = 'none';
            quatreBoxWishP4B3.style.display = '';
-    
+
 
             {% endif %}
           {% endfor %}
   });
+  });
 
 
 
-
-
-
-
-
-
-
-
-
-    
-    
-});
-
-
-
+  
 </script>
-
-
-{% javascript %}
-
-{% endjavascript %}
