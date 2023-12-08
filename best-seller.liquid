@@ -1,55 +1,44 @@
-
-{% stylesheet %}
-
-
-  .section-custom-best-seller h5 {
-  font-size: 1rem;
-}
- 
-    .section-custom-best-seller .flex-container {
+ <style>
+    .section-custom-best-seller .main-flexbox {
       display: flex;
-      height: 788px;
+      object-fit: contain;
+      font-color: #222222;
+
+    }
+
+    .section-custom-best-seller .sub-flexbox {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
       object-fit: contain;
     }
 
-    .section-custom-best-seller .flex-box {
-      flex: 1;
-      width: 56.25vw;
-    }
+   
 
     .section-custom-best-seller .inner-flexbox-image {
       height: 720px;
-      object-fit:contain;
-    }
-
-    .section-custom-best-seller .inner-flexbox-image img {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-
-    }
-  
-    .section-custom-best-seller .inner-flexbox-contenu {
-    display: flex;
-      height: 88px;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      align-content: center;
-      object-fit:contain;
-    }
-
-    .section-custom-best-seller .inner-flexbox-image>.centered-content {
-      text-align: center;
-      font-size: 32px;
-      line-height: 35.5px;
-      max-width: 372.5px;
+      object-fit: contain;
 
 
     }
+      .section-custom-best-seller h2{
+      font-size: 3rem;
+     
 
-    .section-custom-best-seller .button-decouvrez {
-      display:flex;
+     
+   }
+   
+   .section-custom-best-seller h6{
+      font-size: 1.25rem;
+     
+
+     
+   }
+     .section-custom-best-seller h5 {
+  font-size: 1rem;
+}
+   
+      .section-custom-best-seller .button-decouvrez {
       position: absolute;
       top: 641px;
       left: 24px;
@@ -64,12 +53,79 @@
       size: 1.25rem;
 
     }
+
     .section-custom-best-seller .button-decouvrez:hover {
       border: 2px solid #fff;
+      opacity: 1;
+    }
+
+    .section-custom-best-seller .inner-flexbox-image>.centered-content {
+      text-align: center;
+      font-size: 32px;
+      line-height: 35.5px;
+      padding-right: 10%;
+      padding-left: 10%;
+
+    }
+
+    .section-custom-best-seller .anotation {
+  position: absolute;
+      top: 8px;
+      left: 24px;
+      width: 100px;
+      font-size: 1.5rem;
+        color: #222222;
+    
+
+    }
+
+    .section-custom-best-seller .inner-flexbox-image img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+
+    }
+
+    
+    .section-custom-best-seller .inner-flexbox-item {
+      display: flex;
+      height: 88px;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      align-content: center;
+      object-fit:contain;
+    }
+
+   
+    .section-custom-best-seller .div-element {
+      max-height: 100%;
+      object-fit:contain;
+      width: 100%;
+      margin: 12px 16px;
+      justify-content: space-between;
+      object-fit:contain;
+
 
     }
     
-    .section-custom-best-seller .cercle {
+   .section-custom-best-seller .section-1 {
+        justify-content: space-between;
+        display: flex;
+      }
+
+    .section-custom-best-seller .section-2 {
+    justify-content: space-between;
+      display: flex;
+      align-items: center; /* Align items vertically in the center */
+      margin-top: -20px;
+
+    }
+
+     .section-custom-best-seller .link-block {
+      padding-left: 5px; 
+    }
+      .section-custom-best-seller .cercle {
       border: 1px solid #000;
       border-radius: 20px;
 
@@ -81,124 +137,137 @@
 
 
     }
-  
-   
-    .section-custom-best-seller .div-element {
-     max-height: 100%;
-      object-fit:contain;
-      width: 100%;
-      margin: 12px 16px;
-      justify-content: space-between;
 
-    }
-    
- .section-custom-best-seller .section-1 {
-    justify-content: space-between;
-      display: flex;
-
-
-    }
-
-    .section-custom-best-seller .section-2 {
-    justify-content: space-between;
-      display: flex;
-      align-items: center; /* Align items vertically in the center */
-      padding-bottom: 5px;
-
-
-    }
-
-     .section-custom-best-seller .link-block {
-      padding-left: 5px; 
-    }
-    
     @media screen and (max-width: 600px) {
-      .section-custom-best-seller .flex-container {
+      .section-custom-best-seller .main-flexbox {
         flex-direction: column;
         align-items: flex-start;
         display: flex;
-        
+        height: auto;
+
       }
-      .section-custom-best-seller .flex-box {
+
+      .section-custom-best-seller .sub-flexbox {
         width: 100%;
       }
-    
-    }
-{% endstylesheet %}
 
+      .section-custom-best-seller .deux {
+        display: none;
+      }
+
+    }
+  </style>
 
   <div class="section-custom-best-seller">
+    <div class="main-flexbox">
+      <div class="sub-flexbox">
 
-    <div class="flex-container">
-      <div class="flex-box">
         <div class="inner-flexbox-image">
-          <div style="position: relative;object-fit:contain; ">
+
+          {% if section.settings.text-anotation %}
+          <div style="position: relative; ">
+            <p class="anotation" style="text-decoration: none;">{{ section.settings.text-anotation }}</p>
+          </div>
+          {% endif %}
+   <div style="position: relative;object-fit:contain; ">
             <a href="{{ section.settings.selected_product.url }}" class="button-decouvrez" id="decouvrezBestSeller" style="@font-family : prompt_n4 !important;font-size:1.75rem;">Découvrir</a>
           </div>
-          
-              {% if section.settings.selected_product %}
+
+ {% if section.settings.selected_product %}
                 {% assign imageProduit1 = section.settings.image_1 %}
                    <img src="{{ imageProduit1 | img_url: 'master' }}" alt="Image sélectionnée" loading="lazy" id="bestSellerBoxImage"/>
             {% endif %}
-
         </div>
-        <div class="inner-flexbox-contenu">
-          
-          <div class="div-element" >
+
+
+        <div class="inner-flexbox-item">
+
+
+<div class="div-element" >
             
           <section class="section-1">
-            <div><h5>Ensemble Abaya Lila</h5></div>
-            <div><h5>95€</h5></div>
+           <div><h5>{{ section.settings.titre  }}</h5></div>
+                <div><h5> {{ section.settings.prix }}</h5></div>
           </section>
           
           <section class="section-2">
             <div><h5>S M L XL</h5></div>
-            <div class="div-button" >
-              {% if section.settings.color_button.alpha > 0 %}
-            <a href="#" class="link-block" id="Best-Seller-first-Link-produit">
-                <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.color_button1 }};" width="12" height="12" class="cercle" >
+          <div class="div-button" >            
+           {% if section.settings.color_button.alpha > 0 %}
+            <a href="#" class="link-block" id="firstLinkBlockProduit">
+                <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.color_button }};" width="12" height="12" class="cercle" >
             </a>
         {% endif %}
          {% if section.settings.color_button2.alpha > 0 %}
-            <a href="#" class="link-block" id="Best-Seller-second-Link-produit">
+            <a href="#" class="link-block" id="secondSectionLinkBlockProduit">
                 <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.color_button2 }};" width="12" height="12" class="cercle" >
             </a>
         {% endif %}
 {% if section.settings.color_button3.alpha > 0 %}
-            <a href="#" class="link-block" id="Best-Seller-third-Link-produit">
+            <a href="#" class="link-block" id="thirdLinkBlockProduit1">
                 <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.color_button3 }};" width="12" height="12" class="cercle" >
             </a>
         {% endif %}
-            </div>
+
+                </div>
+            
           </section>
           </div>
-
-
           
         </div>
       </div>
 
-      <div class="flex-box">
+
+      <div class="sub-flexbox">
         <div class="inner-flexbox-image" style="background-color: #f5f2ec;display: flex;
-          align-items: center;
-          justify-content: center;
-">
-          <div class="centered-content" >
+        align-items: center;
+        justify-content: center;
+      ">
+          <div class="centered-content">
             <h2 style="font-family:CoralLovers;font-size:3rem;color:#222222;">Notre best-seller L’ensemble Lila</h2>
           </div>
 
         </div>
-        <div class="inner-flexbox-contenu">
-          
+
+        <div class="inner-flexbox-item deux">
+
+
         </div>
+
+
       </div>
     </div>
   </div>
 
 {% schema %}
   {
-    "name": "best-seller",
+    "name": "best-seller-new",
     "settings": [
+          {
+        "type": "text",
+        "id": "text-anotation",
+        "label": "Text anotation"
+      },
+                {
+        "type": "text",
+        "id": "prix",
+        "label": "Text prix"
+      },
+                      {
+        "type": "text",
+        "id": "titre",
+        "label": "Text titre 1"
+      },
+      {
+        "type": "text",
+        "id": "titre2",
+        "label": "Text titre 2"
+      },
+          {
+        "type": "text",
+        "id": "titre3",
+        "label": "Text titre 3"
+      },
   {
       "type": "product",
       "id": "selected_product",
@@ -255,13 +324,14 @@
     ],
       "presets": [
     {
-      "name": "best-seller"
+      "name": "best-seller-new"
     
     
     }
   ]
   }
 {% endschema %}
+
 <script>
 
 
@@ -270,7 +340,22 @@
     var decouvrezBestSeller = document.getElementById('decouvrezBestSeller');
     var bestSellerBoxImage = document.getElementById('bestSellerBoxImage');
 
-document.getElementById('Best-Seller-first-Link-produit').addEventListener('click', function() {
+
+    document.getElementById('secondSectionLinkBlockProduit').addEventListener('click', function() {
+            event.preventDefault();
+            {% if section.settings.selected_product3 %}
+              {% assign imageProduit = section.settings.image_3 %}
+              {% assign urlProduit = section.settings.selected_product3.url %}
+              {% assign product = section.settings.selected_product3 %}
+
+         decouvrezBestSeller.href = "{{ urlProduit }}";
+         bestSellerBoxImage.src = '{{imageProduit | img_url: 'master'}}';
+          
+            {% endif %}
+
+  });
+    
+        document.getElementById('firstLinkBlockProduit').addEventListener('click', function() {
             event.preventDefault();
             {% if section.settings.selected_product %}
               {% assign imageProduit = section.settings.image_1 %}
@@ -278,33 +363,18 @@ document.getElementById('Best-Seller-first-Link-produit').addEventListener('clic
               {% assign product = section.settings.selected_product %}
 
          decouvrezBestSeller.href = "{{ urlProduit }}";
-
          bestSellerBoxImage.src = '{{imageProduit | img_url: 'master'}}';
           
             {% endif %}
 
   });
 
-    
-document.getElementById('Best-Seller-second-Link-produit').addEventListener('click', function() {
-            event.preventDefault();
-            {% if section.settings.selected_product2 %}
-              {% assign imageProduit = section.settings.image_2 %}
-              {% assign urlProduit = section.settings.selected_product.url %}
-              {% assign product = section.settings.selected_product %}
-
-         decouvrezBestSeller.href = "{{ urlProduit }}";
-         bestSellerBoxImage.src = '{{imageProduit | img_url: 'master'}}';
-          
-            {% endif %}
-
-  });
-    document.getElementById('Best-Seller-third-Link-produit').addEventListener('click', function() {
+    document.getElementById('thirdLinkBlockProduit1').addEventListener('click', function() {
             event.preventDefault();
             {% if section.settings.selected_product3 %}
               {% assign imageProduit = section.settings.image_3 %}
-              {% assign urlProduit = section.settings.selected_product.url %}
-              {% assign product = section.settings.selected_product %}
+              {% assign urlProduit = section.settings.selected_product3.url %}
+              {% assign product = section.settings.selected_product3 %}
 
          decouvrezBestSeller.href = "{{ urlProduit }}";
          bestSellerBoxImage.src = '{{imageProduit | img_url: 'master'}}';
@@ -329,5 +399,3 @@ document.getElementById('Best-Seller-second-Link-produit').addEventListener('cli
 
   
 </script>
-{% javascript %}
-{% endjavascript %}
