@@ -12,7 +12,6 @@
 .section-custom-pas-un-pli h5 {
   font-size: 1rem;
 }
- 
   
       .section-custom-pas-un-pli .main-flexbox {
         display: flex;
@@ -110,7 +109,7 @@
     justify-content: space-between;
       display: flex;
       align-items: center; /* Align items vertically in the center */
-
+     margin-top: -20px;
       }
 
       .section-custom-pas-un-pli .div-button {
@@ -145,6 +144,9 @@
         .section-custom-pas-un-pli .sub-flexbox {
           width: 100%;
         }
+          .section-custom-pas-un-pli .test {
+display:none;
+          }
 
       }
     </style>
@@ -181,8 +183,16 @@
             <div class="div-element">
 
               <section class="section-1">
-                <div><h5>Ensemble Robe plissée et Kimono Saphir</h5></div>
-                <div><h5>115€</h5></div>
+           {% for block in section.blocks %}
+              {% if block.type == "produit_1" %}
+                {% assign titre = block.settings.titre %}
+               {% assign prix = block.settings.prix %}
+
+                <div><h5 style="font-size:1rem;" id="PasUnPliTitre1">{{ titre  }}</h5></div>
+                <div><h5 style="font-size:1rem;"> {{ prix }}</h5></div>
+
+            {% endif %}
+          {% endfor %}
               </section>
 
               <section class="section-2">
@@ -223,15 +233,8 @@
           <div class="centered-content">
             <h2 style="font-size:3rem;font-family: CoralLovers;color: #22222;">Pas un Pli, Des Ensembles plissés qui soulignent sans dévoiler.</h2> </div>
           </div>
-          <div class="sub-flexbox-item"></div>
+          <div class="sub-flexbox-item test"></div>
         </div>
-
-
-
-
-
-
-
 
 
         <div class="sub-flexbox">
@@ -248,10 +251,6 @@
                 {% endif %}
             {% endfor %}
 
-
-
-
-
           </div>
           <div class="sub-flexbox-item">
 
@@ -259,8 +258,16 @@
             <div class="div-element">
 
               <section class="section-1">
-                <div><h5>Ensemble Top et jupe plissés Serenity</h5></div>
-                <div><h5>89€</h5></div>
+                     {% for block in section.blocks %}
+              {% if block.type == "V2produit_1" %}
+                {% assign titre = block.settings.titre %}
+               {% assign prix = block.settings.prix %}
+
+                <div><h5 style="font-size:1rem;" id="PasUnPliTitre2">{{ titre }}</h5></div>
+                <div><h5 style="font-size:1rem;"> {{ prix }}</h5></div>
+
+            {% endif %}
+          {% endfor %}
               </section>
 
               <section class="section-2" >
@@ -412,7 +419,16 @@
       "type": "image_picker",
       "id": "imageProduit",
       "label": "Sélectionner une image"
-    }
+    },  {
+        "type": "text",
+        "id": "prix",
+        "label": "prix produit"
+      },
+                {
+        "type": "text",
+        "id": "titre",
+        "label": "Text produit"
+      }
       ]
     },
 
@@ -430,7 +446,16 @@
       "type": "image_picker",
       "id": "imageProduit",
       "label": "Sélectionner une image"
-    }
+    }, {
+        "type": "text",
+        "id": "prix",
+        "label": "prix produit"
+      },
+                {
+        "type": "text",
+        "id": "titre",
+        "label": "Text produit"
+      }
         
       ]
     },
@@ -448,7 +473,17 @@
       "type": "image_picker",
       "id": "imageProduit",
       "label": "Sélectionner une image"
-    }
+    },
+         {
+        "type": "text",
+        "id": "prix",
+        "label": "prix produit"
+      },
+                {
+        "type": "text",
+        "id": "titre",
+        "label": "Text produit"
+      }
         
       ]
     },
@@ -466,7 +501,17 @@
       "type": "image_picker",
       "id": "imageProduit",
       "label": "Sélectionner une image"
-    }
+    },
+         {
+        "type": "text",
+        "id": "prix",
+        "label": "prix produit"
+      },
+                {
+        "type": "text",
+        "id": "titre",
+        "label": "Text produit"
+      }
       ]
     },
     {
@@ -483,7 +528,17 @@
       "type": "image_picker",
       "id": "imageProduit",
       "label": "Sélectionner une image"
-    }
+    },
+         {
+        "type": "text",
+        "id": "prix",
+        "label": "prix produit"
+      },
+                {
+        "type": "text",
+        "id": "titre",
+        "label": "Text produit"
+      }
       ]
     },   
     {
@@ -500,7 +555,17 @@
       "type": "image_picker",
       "id": "imageProduit",
       "label": "Sélectionner une image"
-    }
+    },
+         {
+        "type": "text",
+        "id": "prix",
+        "label": "prix produit"
+      },
+                {
+        "type": "text",
+        "id": "titre",
+        "label": "Text produit"
+      }
       ]
     }
 
@@ -539,34 +604,12 @@
     {% for block in section.blocks %}
               {% if block.type == "produit_1" %}
                 {% assign selected_product  = block.settings.selected_product %}
-                console.log("test : " + "{{selected_product.title}}");
             {% endif %}
           {% endfor %}
 
-      myButton.addEventListener('click', function() {
-        // Appeler la fonction pour changer l'image
-
-        changeImage();
-      });
-      
-      // Fonction pour changer l'image
-      function changeImage() {
-
-    if (myButton.textContent === 'Changer le texte') {
-    // Changer le texte vers une nouvelle valeur
-    myButton.textContent = 'Nouveau texte';
-  } else {
-    // Changer le texte vers la valeur d'origine
-    myButton.textContent = 'Changer le texte';
-  }
-        
-        if (myImage.src.endsWith('image1.jpg')) {
-          myImage.src = 'image2.jpg';
-        } else {
-          myImage.src = 'image1.jpg';
-        }
-      }
   
+      
+ 
 
 
      firstLinkBlockProduit1.addEventListener('click', function() {
@@ -578,6 +621,8 @@
 
               imageProduitBox1.src = "{{ imageProduit | img_url: 'master' }}";
               decouvreProduit1.href = "{{ urlProduit }}" ;
+              document.getElementById('PasUnPliTitre1').textContent =  "{{ block.settings.titre  }}"
+
             {% endif %}
           {% endfor %}
 
@@ -592,6 +637,7 @@
 
         imageProduitBox1.src = "{{ imageProduit | img_url: 'master' }}";
         decouvreProduit1.href = "{{ urlProduit }}" ;
+              document.getElementById('PasUnPliTitre1').textContent =  "{{ block.settings.titre  }}"
 
       {% endif %}
     {% endfor %}
@@ -607,12 +653,26 @@
 
               imageProduitBox1.src = "{{ imageProduit | img_url: 'master' }}";
               decouvreProduit1.href = "{{ urlProduit }}" ;
+              document.getElementById('PasUnPliTitre1').textContent =  "{{ block.settings.titre  }}"
 
             {% endif %}
           {% endfor %}
 
       
     });
+
+  
+
+
+    
+    });
+
+
+  </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+
 
        firstLinkBlockProduit2.addEventListener('click', function() {
       event.preventDefault();
@@ -623,7 +683,10 @@
 
               imageProduitBox2.src = "{{ imageProduit | img_url: 'master' }}";
               decouvreProduit2.href = "{{ urlProduit }}" ;
+                       document.getElementById('PasUnPliTitre2').textContent =  "{{ block.settings.titre  }}"
+
             {% endif %}
+        
           {% endfor %}
 
     });
@@ -637,6 +700,8 @@
 
               imageProduitBox2.src = "{{ imageProduit | img_url: 'master' }}";
               decouvreProduit2.href = "{{ urlProduit }}" ;
+                       document.getElementById('PasUnPliTitre2').textContent =  "{{ block.settings.titre  }}"
+
             {% endif %}
           {% endfor %}
 
@@ -652,19 +717,14 @@
 
               imageProduitBox2.src = "{{ imageProduit | img_url: 'master' }}";
               decouvreProduit2.href = "{{ urlProduit }}" ;
+                             document.getElementById('PasUnPliTitre2').textContent =  "{{ block.settings.titre  }}"
+
             {% endif %}
           {% endfor %}
 
     });
-
-
-    
-    });
-
-
-  </script>
-
-
+  });
+</script>
 {% javascript %}
 
   <!-- Votre contenu de section précédent -->
