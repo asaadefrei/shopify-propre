@@ -188,6 +188,54 @@
 
         <div class="inner-flexbox-image">
 
+          
+            <div style="position: relative; ">
+
+{% if section.settings.wishlist-heart-void %} 
+    {% if section.settings.selected_product %}
+    {% assign product = section.settings.selected_product %}
+  <button class="my-icon-filled button-wishlist swym-add-to-wishlist swym-iconbtnlink swym-heart swym-added btn1 swym-loaded twoBox4WishP1B1" 
+    data-with-epi="true" 
+    data-swaction="addToWishlist"
+    data-product-id="{{ product.id }}" 
+    data-variant-id="{{ product.variants[0].id }}"
+    data-product-url="{{ shop.url }}{{ product.url }}"
+   >
+        <img src="{{ section.settings.wishlist-heart-void | img_url: 'master' }}" alt="Image sélectionnée" style="height:25px;width:25px;background-color: transparent;" class="box4Img1P1"/>
+</button>
+
+       
+  {% endif %}
+
+    {% if section.settings.selected_product2 %}
+    {% assign product = section.settings.selected_product2 %}
+  <button class="button-wishlist my-icon-filled swym-add-to-wishlist swym-iconbtnlink swym-heart swym-added swym-loaded twoBox4WishP1B2" style="display:none;"
+    data-with-epi="true" 
+    data-swaction="addToWishlist"
+    data-product-id="{{ product.id }}" 
+    data-variant-id="{{ product.variants[0].id }}"
+    data-product-url="{{ shop.url }}{{ product.url }}"
+   >
+        <img src="{{ section.settings.wishlist-heart-void | img_url: 'master' }}" alt="Image sélectionnée" style="height:25px;width:25px;background-color: transparent;" class="box4Img2"/>
+</button>
+  {% endif %}
+    {% if section.settings.selected_product3 %}
+    {% assign product = section.settings.selected_product3 %}
+  <button class="button-wishlist my-icon-filled swym-add-to-wishlist swym-iconbtnlink swym-heart swym-added swym-loaded twoBox4WishP1B3" style="display:none;"
+    data-with-epi="true" 
+    data-swaction="addToWishlist"
+    data-product-id="{{ product.id }}" 
+    data-variant-id="{{ product.variants[0].id }}"
+    data-product-url="{{ shop.url }}{{ product.url }}"
+   >
+        <img src="{{ section.settings.wishlist-heart-void | img_url: 'master' }}" alt="Image sélectionnée" style="height:25px;width:25px;background-color: transparent;" class="box4Img3"/>
+</button>
+  {% endif %}
+
+  {% endif %}
+
+            </div>
+
           {% if section.settings.text-anotation %}
           <div style="position: relative; ">
             <p class="anotation">{{ section.settings.text-anotation }}</p>
@@ -244,6 +292,54 @@
 
       <div class="sub-flexbox">
         <div class="inner-flexbox-image">
+
+          
+            <div style="position: relative; ">
+
+{% if section.settings.wishlist-heart-void %} 
+    {% if section.settings.selected_product %}
+    {% assign product = section.settings.selected_product %}
+  <button class="my-icon-filled button-wishlist swym-add-to-wishlist swym-iconbtnlink swym-heart swym-added btn1 swym-loaded twoBox4WishP2B1" 
+    data-with-epi="true" 
+    data-swaction="addToWishlist"
+    data-product-id="{{ product.id }}" 
+    data-variant-id="{{ product.variants[0].id }}"
+    data-product-url="{{ shop.url }}{{ product.url }}"
+   >
+        <img src="{{ section.settings.wishlist-heart-void | img_url: 'master' }}" alt="Image sélectionnée" style="height:25px;width:25px;background-color: transparent;"/>
+</button>
+
+       
+  {% endif %}
+
+    {% if section.settings.selected_product2 %}
+    {% assign product = section.settings.selected_product2 %}
+  <button class="button-wishlist my-icon-filled swym-add-to-wishlist swym-iconbtnlink swym-heart swym-added swym-loaded twoBox4WishP2B2" style="display:none;"
+    data-with-epi="true" 
+    data-swaction="addToWishlist"
+    data-product-id="{{ product.id }}" 
+    data-variant-id="{{ product.variants[0].id }}"
+    data-product-url="{{ shop.url }}{{ product.url }}"
+   >
+        <img src="{{ section.settings.wishlist-heart-void | img_url: 'master' }}" alt="Image sélectionnée" style="height:25px;width:25px;background-color: transparent;"/>
+</button>
+  {% endif %}
+    {% if section.settings.selected_product3 %}
+    {% assign product = section.settings.selected_product3 %}
+  <button class="button-wishlist my-icon-filled swym-add-to-wishlist swym-iconbtnlink swym-heart swym-added swym-loaded twoBox4WishP2B3" style="display:none;"
+    data-with-epi="true" 
+    data-swaction="addToWishlist"
+    data-product-id="{{ product.id }}" 
+    data-variant-id="{{ product.variants[0].id }}"
+    data-product-url="{{ shop.url }}{{ product.url }}"
+   >
+        <img src="{{ section.settings.wishlist-heart-void | img_url: 'master' }}" alt="Image sélectionnée" style="height:25px;width:25px;background-color: transparent;"/>
+</button>
+  {% endif %}
+
+  {% endif %}
+
+            </div>
           
           {% if section.settings.text-anotation %}
           <div style="position: relative; ">
@@ -359,6 +455,11 @@
         "id": "V2titre3",
         "label": "[2] Text produit 3"
       },
+           {
+      "type": "image_picker",
+      "label": "wish list icon",
+      "id": "wishlist-heart-void"
+    },
   {
       "type": "product",
       "id": "selected_product",
@@ -496,6 +597,9 @@ document.getElementById('SectionTwo4firstLinkTwoBlockProduit1').addEventListener
          SectionTwoBox4TwoBoxLinkBox1.href = "{{ urlProduit }}";
 
          SectionTwoBox4TwoBoxImageBox1.src = '{{imageProduit | img_url: 'master'}}';
+      document.querySelector(".twoBox4WishP1B1").style.display = '';
+     document.querySelector(".twoBox4WishP1B2").style.display = 'none';
+     document.querySelector(".twoBox4WishP1B3").style.display = 'none';
           
             {% endif %}
 
@@ -512,7 +616,9 @@ document.getElementById('SectionTwo4secondLinkTwoBlockProduit1').addEventListene
 
          SectionTwoBox4TwoBoxLinkBox1.href = "{{ urlProduit }}";
          SectionTwoBox4TwoBoxImageBox1.src = '{{imageProduit | img_url: 'master'}}';
-          
+                document.querySelector(".twoBox4WishP1B1").style.display = 'none';
+     document.querySelector(".twoBox4WishP1B2").style.display = '';
+     document.querySelector(".twoBox4WishP1B3").style.display = 'none';
             {% endif %}
 
   });
@@ -526,6 +632,9 @@ document.getElementById('SectionTwo4secondLinkTwoBlockProduit1').addEventListene
 
          SectionTwoBox4TwoBoxLinkBox1.href = "{{ urlProduit }}";
          SectionTwoBox4TwoBoxImageBox1.src = '{{imageProduit | img_url: 'master'}}';
+            document.querySelector(".twoBox4WishP1B1").style.display = 'none';
+     document.querySelector(".twoBox4WishP1B2").style.display = 'none';
+     document.querySelector(".twoBox4WishP1B3").style.display = '';
           
             {% endif %}
 
@@ -558,9 +667,13 @@ document.getElementById('SectionTwo4secondLinkTwoBlockProduit1').addEventListene
                   document.getElementById('twoBox4TitreProduit2').innerHTML =  "{{ section.settings.V2titre }}"
 
          SectionTwoBox4TwoBoxLinkBox2.href = "{{ urlProduit }}";
-
          SectionTwoBox4TwoBoxImageBox2.src = '{{imageProduit | img_url: 'master'}}';
-          
+    document.querySelector(".twoBox4WishP2B1").style.display = '';
+     document.querySelector(".twoBox4WishP2B2").style.display = 'none';
+     document.querySelector(".twoBox4WishP2B3").style.display = 'none';
+
+
+      
             {% endif %}
 
   });
@@ -576,7 +689,9 @@ document.getElementById('SectionTwo4secondLinkTwoBlockProduit2').addEventListene
 
          SectionTwoBox4TwoBoxLinkBox2.href = "{{ urlProduit }}";
          SectionTwoBox4TwoBoxImageBox2.src = '{{imageProduit | img_url: 'master'}}';
-          
+    document.querySelector(".twoBox4WishP2B1").style.display = 'none';
+     document.querySelector(".twoBox4WishP2B2").style.display = '';
+     document.querySelector(".twoBox4WishP2B3").style.display = 'none';
             {% endif %}
 
   });
@@ -590,7 +705,9 @@ document.getElementById('SectionTwo4secondLinkTwoBlockProduit2').addEventListene
 
          SectionTwoBox4TwoBoxLinkBox2.href = "{{ urlProduit }}";
          SectionTwoBox4TwoBoxImageBox2.src = '{{imageProduit | img_url: 'master'}}';
-          
+    document.querySelector(".twoBox4WishP2B1").style.display = 'none';
+     document.querySelector(".twoBox4WishP2B2").style.display = 'none';
+     document.querySelector(".twoBox4WishP2B3").style.display = '';
             {% endif %}
 
   });
