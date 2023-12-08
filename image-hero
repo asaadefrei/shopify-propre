@@ -1,0 +1,323 @@
+<style>
+  .section-image-hero .main-flex {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .section-image-hero .inner-flexbox-image {
+    height: 70vh;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  .section-image-hero h5 {
+    font-size: 1rem;
+  }
+  .section-image-hero .inner-flexbox-image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+
+  .section-image-hero .inner-flexbox-item {
+   display: flex;
+      height: 88px;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      align-content: center;
+      object-fit:contain;
+
+  }
+
+
+  .section-image-hero .div-element {
+     max-height: 100%;
+      object-fit:contain;
+      width: 100%;
+      margin: 12px 16px;
+      justify-content: space-between; 
+    
+    
+  }
+
+  .section-image-hero .section-1 {
+    justify-content: space-between;
+      display: flex;
+
+  }
+
+  .section-image-hero .section-2 {
+      justify-content: space-between;
+      display: flex;
+      align-items: center; 
+      padding-bottom: 5px;
+    margin-top: -20px;
+
+  }
+
+  .section-image-hero .link-block {
+    padding-left: 5px;
+  }
+
+  .section-image-hero .cercle {
+    border: 1px solid #000;
+    border-radius: 20px;
+
+
+  }
+    .section-image-hero .div-button {
+      font-size: 0;
+
+
+    }
+
+     .section-image-hero .button-decouvrez {
+      position: absolute;
+      width: auto; /* Ajoutez la largeur souhaitée lorsqu'il est survolé */
+      color: #fff;
+      background-color: rgba(255, 255, 255, .17);
+      border: 1px solid #fff;
+      padding: 12px 24px;
+      transition: border-color 0.3s;
+      box-sizing: border-box;
+      text-decoration: none !important;
+      size: 1.25rem;
+      top: 50vh;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    display: flex;
+    flex-direction: column;
+
+    }
+
+
+    .section-image-hero .button-decouvrez:hover {
+      border: 2px solid #fff;
+      opacity: 1;
+    }
+
+  
+
+</style>
+
+<body>
+
+  <div class="section-image-hero">
+    <div class="main-flex">
+      <div class="inner-flexbox-image">
+         <div style="position: relative;">
+            <a href="{{ section.settings.selected_product.url }}" class="button-decouvrez" style="@font-family : prompt_n4 !important;font-size:1.75rem;">Découvrir</a>
+          </div>
+        
+ {% if section.settings.selected_product %}
+                {% assign imageProduit1 = section.settings.image1 %}
+                   <img src="{{ imageProduit1 | img_url: 'master' }}" id="imageProduitHero" alt="Image sélectionnée" loading="lazy" />
+            {% endif %}
+        </div>
+      
+ <div class="inner-flexbox-item">
+        <div class="div-element">
+
+          <section class="section-1">
+    <div><h5>{{ section.settings.titre  }}</h5></div>
+                <div><h5> {{ section.settings.prix }}</h5></div>
+          </section>
+
+          <section class="section-2">
+            <div><h5>S M L XL</h5></div>
+            <div class="div-button">
+           {% if section.settings.color_button1.alpha > 0 %}
+            <a href="#" class="link-block" id="firstLinkBlockProduitHero">
+                <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.color_button1 }};" width="12" height="12" class="cercle" >
+            </a>
+        {% endif %}
+         {% if section.settings.color_button2.alpha > 0 %}
+            <a href="#" class="link-block" id="secondLinkBlockProduit1Hero">
+                <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.color_button2 }};" width="12" height="12" class="cercle" >
+            </a>
+        {% endif %}
+       {% if section.settings.color_button3.alpha > 0 %}
+            <a href="#" class="link-block" id="thirdLinkBlockProduit1Hero">
+                <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.color_button3 }};" width="12" height="12" class="cercle" >
+            </a>
+        {% endif %}
+            </div>
+            
+          </section>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+
+
+
+{% schema %}
+{
+  "name": "image-hero",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+                {
+        "type": "text",
+        "id": "prix",
+        "label": "Text prix"
+      },
+                      {
+        "type": "text",
+        "id": "titre",
+        "label": "Text titre 1"
+      },
+      {
+        "type": "text",
+        "id": "titre2",
+        "label": "Text titre 2"
+      },
+          {
+        "type": "text",
+        "id": "titre3",
+        "label": "Text titre 3"
+      },
+        {
+      "type": "image_picker",
+      "id": "forme",
+      "label": "forme "
+    },
+      {
+      "type": "image_picker",
+      "id": "image1",
+      "label": "image 1"
+    },
+       {
+      "type": "image_picker",
+      "id": "image2",
+      "label": "image 2"
+    },
+       {
+      "type": "image_picker",
+      "id": "image3",
+      "label": "image 3"
+    },
+      {
+      "type": "product",
+      "id": "selected_product",
+      "label": "Produit sélectionné",
+      "info": "Choisissez un produit à afficher dans cette section"
+    },
+        {
+      "type": "product",
+      "id": "selected_product2",
+      "label": "Produit sélectionné",
+      "info": "Choisissez un produit à afficher dans cette section"
+    },
+        {
+      "type": "product",
+      "id": "selected_product3",
+      "label": "Produit sélectionné",
+      "info": "Choisissez un produit à afficher dans cette section"
+    },
+            {
+      "type": "color",
+      "id": "color_button1",
+      "label": "[1] Couleur du bouton"
+    },
+     {
+      "type": "color",
+      "id": "color_button2",
+      "label": "[1] Couleur du bouton 2"
+    },
+      {
+      "type": "color",
+      "id": "color_button3",
+      "label": "[1] Couleur du bouton 3"
+    }
+    
+  ]
+  ,
+  
+  "presets": [
+    {
+      "name": "image-hero"
+    }
+  ]
+}
+{% endschema %}
+
+
+<script>
+
+
+  document.addEventListener('DOMContentLoaded', function() {
+ 
+    var buttonDecouvre = document.getElementById('button-decouvrez');
+    var imageProduitHero = document.getElementById('imageProduitHero');
+
+   document.getElementById('firstLinkBlockProduitHero').addEventListener('click', function() {
+            event.preventDefault();
+            {% if section.settings.selected_product %}
+              {% assign imageProduit = section.settings.image1 %}
+              {% assign urlProduit = section.settings.selected_product.url %}
+              {% assign product = section.settings.selected_product %}
+
+         imageProduitHero.src = '{{imageProduit | img_url: 'master'}}';
+          
+            {% endif %}
+  });
+
+document.getElementById('secondLinkBlockProduit1Hero').addEventListener('click', function() {
+            event.preventDefault();
+            {% if section.settings.selected_product2 %}
+              {% assign imageProduit = section.settings.image2 %}
+              {% assign urlProduit = section.settings.selected_product2.url %}
+              {% assign product = section.settings.selected_product2 %}
+
+         imageProduitHero.src = '{{imageProduit | img_url: 'master'}}';
+          
+            {% endif %}
+
+  });
+    document.getElementById('thirdLinkBlockProduit1Hero').addEventListener('click', function() {
+            event.preventDefault();
+            {% if section.settings.selected_product3 %}
+              {% assign imageProduit = section.settings.image3 %}
+              {% assign urlProduit = section.settings.selected_product3.url %}
+              {% assign product = section.settings.selected_product3 %}
+
+         imageProduitHero.src = '{{imageProduit | img_url: 'master'}}';
+          
+            {% endif %}
+
+  });
+
+
+    
+
+
+
+});
+
+
+
+
+
+
+
+
+  
+</script>
+
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
