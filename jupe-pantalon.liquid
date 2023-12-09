@@ -8,8 +8,8 @@
   }
 
 
-  .section-ensemble-jupe-pantalon .inner-flexbox-image {
-    height: 160vh;
+   .section-ensemble-jupe-pantalon .inner-flexbox-image {
+     height: 120vh ! important;
     width: 100%;
     object-fit: contain;
   }
@@ -52,6 +52,7 @@
       display: flex;
       align-items: center; 
       padding-bottom: 5px;
+    margin-top: -20px;
 
   }
 
@@ -65,7 +66,7 @@
 
 
   }
-    .section-custom-best-seller .div-button {
+    .section-ensemble-jupe-pantalon .div-button {
       font-size: 0;
 
 
@@ -75,20 +76,20 @@
 
   <div class="section-ensemble-jupe-pantalon">
     <div class="main-flex">
-      <div class="inner-flexbox-image">
+      <div class="inner-flexbox-image" >
 
-        <a href="{{ section.settings.url_product }}">
-  {% if section.settings.selected_product %}
-                {% assign imageProduit1 = section.settings.image_1 %}
-                   <img src="{{ imageProduit1 | img_url: 'master' }}" alt="Image sélectionnée" loading="lazy" id="bestSellerBoxImage"/>
-            {% endif %}        </a>
+   <a href="{{ section.settings.url_product }}" id="productJupeAndPantalonLink">
+    {% if section.settings.selected_product %}
+                   <img src="{{ section.settings.image_1 | img_url: 'master' }}" alt="Image sélectionnée" id="productJupeAndPantalonImage"/>
+            {% endif %}       
+      </a>   
 
       </div>
       <div class="inner-flexbox-item">
         <div class="div-element">
 
           <section class="section-1">
-            <div><h5>Ensemble Top et jupe plissés Serenity </h5></div>
+            <div><h5 class="jupePantalonTitre">{{ section.settings.titre }} </h5></div>
             <div><h5>89€</h5></div>
           </section>
 
@@ -96,17 +97,17 @@
             <div><h5>S M L XL</h5></div>
             <div class="div-button">
            {% if section.settings.color_button.alpha > 0 %}
-            <a href="#" class="link-block" id="Best-Seller-first-Link-produit">
-                <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.color_button1 }};" width="12" height="12" class="cercle" >
+            <a href="#" class="link-block" id="jupe-pantalon-first-Link-produit">
+                <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.color_button }};" width="12" height="12" class="cercle" >
             </a>
         {% endif %}
          {% if section.settings.color_button2.alpha > 0 %}
-            <a href="#" class="link-block" id="Best-Seller-second-Link-produit">
+            <a href="#" class="link-block" id="jupe-pantalon-second-Link-produit">
                 <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.color_button2 }};" width="12" height="12" class="cercle" >
             </a>
         {% endif %}
        {% if section.settings.color_button3.alpha > 0 %}
-            <a href="#" class="link-block" id="Best-Seller-third-Link-produit">
+            <a href="#" class="link-block" id="jupe-pantalon-third-Link-produit">
                 <img src="{{ section.settings.forme | img_url: 'master' }}" alt="" loading="lazy" style="background-color:{{ section.settings.color_button3 }};" width="12" height="12" class="cercle" >
             </a>
         {% endif %}
@@ -158,6 +159,22 @@
       "label": "Image 3",
       "id": "image_3"
     },
+      
+                {
+      "type": "text",
+      "label": "titre 1",
+      "id": "titre"
+    },
+    {
+      "type": "text",
+      "label": "titre 2",
+      "id": "titre2"
+    },
+       {
+      "type": "text",
+      "label": "titre 3",
+      "id": "titre3"
+    },
           {
       "type": "image_picker",
       "label": "rorme cercle",
@@ -192,3 +209,75 @@
   ]
   }
 {% endschema %}
+
+
+<script>
+
+
+  document.addEventListener('DOMContentLoaded', function() {
+ 
+    var productJupeAndPantalonLink = document.getElementById('productJupeAndPantalonLink');
+    var productJupeAndPantalonImage = document.getElementById('productJupeAndPantalonImage');
+
+document.getElementById('jupe-pantalon-first-Link-produit').addEventListener('click', function() {
+            event.preventDefault();
+            {% if section.settings.selected_product %}
+              {% assign imageProduit = section.settings.image_1 %}
+              {% assign urlProduit = section.settings.selected_product.url %}
+              {% assign product = section.settings.selected_product %}
+         document.querySelector('.jupePantalonTitre').innerHTML =  "{{ section.settings.titre  }}"
+      
+          productJupeAndPantalonLink.href ="{{ urlProduit }}";
+         productJupeAndPantalonImage.src = '{{imageProduit | img_url: 'master'}}';
+  
+          
+            {% endif %}
+
+  });
+
+    
+document.getElementById('jupe-pantalon-second-Link-produit').addEventListener('click', function() {
+            event.preventDefault();
+            {% if section.settings.selected_product2 %}
+              {% assign imageProduit = section.settings.image_2 %}
+              {% assign urlProduit = section.settings.selected_product2.url %}
+              {% assign product = section.settings.selected_product2 %}
+         document.querySelector('.jupePantalonTitre').innerHTML =  "{{ section.settings.titre2  }}"
+
+         productJupeAndPantalonLink.href = "{{ urlProduit }}";
+         productJupeAndPantalonImage.src = '{{imageProduit | img_url: 'master'}}';
+          
+            {% endif %}
+
+  });
+    document.getElementById('jupe-pantalon-third-Link-produit').addEventListener('click', function() {
+            event.preventDefault();
+            {% if section.settings.selected_product3 %}
+              {% assign imageProduit = section.settings.image_3 %}
+              {% assign urlProduit = section.settings.selected_product3.url %}
+              {% assign product = section.settings.selected_product3 %}
+         document.querySelector('.jupePantalonTitre').innerHTML =  "{{ section.settings.titre3  }}"
+
+         productJupeAndPantalonLink.href = "{{ urlProduit }}";
+         productJupeAndPantalonImage.src = '{{imageProduit | img_url: 'master'}}';
+          
+            {% endif %}
+
+  });
+
+
+    
+
+
+
+});
+
+
+
+
+
+
+
+
+  
+</script>
