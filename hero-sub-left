@@ -273,7 +273,7 @@ font-size:1rem;
                {% assign prix = block.settings.prix %}
 
                 <div><h5 style="font-size:1rem;" id="SectionSubHeroLeftTitre1">{{ titre  }}</h5></div>
-                <div><h5 style="font-size:1rem;"> {{ prix }}</h5></div>
+                <div><h5 style="font-size:1rem; white-space: nowrap;"> {{ prix }}</h5></div>
 
             {% endif %}
           {% endfor %}
@@ -404,7 +404,7 @@ font-size:1rem;
                {% assign prix = block.settings.prix %}
 
                 <div><h5 style="font-size:1rem;" id="SectionSubHeroLeftTitre2">{{ titre  }}</h5></div>
-                <div><h5 style="font-size:1rem;"> {{ prix }}</h5></div>
+                <div><h5 style="font-size:1rem; white-space: nowrap;"> {{ prix }}</h5></div>
             {% endif %}
           {% endfor %}
               </section>
@@ -510,7 +510,7 @@ font-size:1rem;
                {% assign prix = block.settings.prix %}
 
                 <div><h5 style="font-size:1rem;" id="SectionSubHeroLeftTitre3">{{ titre  }}</h5></div>
-                <div><h5 style="font-size:1rem;"> {{ prix }}</h5></div>
+                <div><h5 style="font-size:1rem; white-space: nowrap;"> {{ prix }}</h5></div>
 
             {% endif %}
           {% endfor %}
@@ -620,7 +620,7 @@ font-size:1rem;
                {% assign prix = block.settings.prix %}
 
                 <div><h5 style="font-size:1rem;" id="SectionSubHeroLeftTitre4">{{ titre  }}</h5></div>
-                <div><h5 style="font-size:1rem;"> {{ prix }}</h5></div>
+                <div><h5 style="font-size:1rem; white-space: nowrap;"> {{ prix }}</h5></div>
 
             {% endif %}
           {% endfor %}
@@ -728,7 +728,7 @@ font-size:1rem;
                {% assign prix = block.settings.prix %}
 
                 <div><h5 style="font-size:1rem;" id="SectionSubHeroLeftTitre5">{{ titre  }}</h5></div>
-                <div><h5 style="font-size:1rem;"> {{ prix }}</h5></div>
+                <div><h5 style="font-size:1rem; white-space: nowrap;"> {{ prix }}</h5></div>
 
             {% endif %}
           {% endfor %}
