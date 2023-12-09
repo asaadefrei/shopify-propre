@@ -1,0 +1,138 @@
+
+<style>
+  .section-video-custom .main-flex {
+    display: flex;
+    flex-direction: column;
+    object-fit: contain;
+
+  }
+    .section-video-custom h1 {
+        font-size: 8rem; /* Ajustez la taille de la police pour les écrans plus petits */
+    }
+
+  .section-video-custom .inner-flexbox-image {
+    height: 118vh;
+    width: 100%;
+    object-fit: contain;
+    text-align: center
+  }
+
+  .section-video-custom .inner-flexbox-image video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .section-video-custom .text {
+    position: absolute;
+    top: 65vh;
+    left: 50%;
+    color: white;
+    width: auto;
+   transform: translate(-50%, 50%);
+    display: flex;
+        white-space: nowrap; /* Force le texte à rester sur la même ligne */
+
+  }
+
+  .section-video-custom .button-decouvrez {
+    position: absolute;
+    width: auto;
+    /* Ajoutez la largeur souhaitée lorsqu'il est survolé */
+    color: #fff;
+    background-color: rgba(255, 255, 255, .17);
+    border: 1px solid #fff;
+    padding: 12px 24px;
+    transition: border-color 0.3s;
+    box-sizing: border-box;
+    text-decoration: none !important;
+    size: 1.25rem;
+    top: 90vh;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    /* Assurez-vous que la vidéo a un z-index inférieur à celui du bouton */
+        white-space: nowrap; /* Force le texte à rester sur la même ligne */
+
+  }
+
+
+  .section-video-custom .button-decouvrez:hover {
+    border: 2px solid #fff;
+    opacity: 1;
+  }
+
+      @media screen and (max-width: 800px) {
+    .section-video-custom h1 {
+        font-size: 4rem; /* Ajustez la taille de la police pour les écrans plus petits */
+    }
+          .section-video-custom .text {
+    top: 75vh;
+ 
+  }
+      }
+</style>
+
+<body>
+
+  <div class="section-video-custom">
+    <div class="main-flex">
+      <div class="inner-flexbox-image">
+
+        <div style="position: relative;">
+          <h1 class="text" style="font-family:CoralLovers;">Collection Serenity</h1>
+        </div>
+
+        <div style="position: relative;">
+          <a href="{{ section.settings.collection }}" class="button-decouvrez" style="font-size:2rem;">Découvrir la collection</a>
+        </div>
+
+        <video autoplay loop muted>
+          <source src="{{ section.settings.video }}" type="video/mp4">
+        </video>
+
+      </div>
+
+    </div>
+  </div>
+
+
+  {% schema %}
+{
+  "name": "video-hero-ishaya",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+      {
+      "type": "url",
+      "id": "video",
+      "label": "video"
+    },
+         {
+      "type": "url",
+      "id": "collection",
+      "label": "collection button"
+    }
+    
+  ],
+  
+  "presets": [
+    {
+      "name": "video-hero-ishaya"
+    }
+  ]
+}
+{% endschema %}
+
+
+{% stylesheet %}
+{% endstylesheet %}
+
+
+{% javascript %}
+{% endjavascript %}
